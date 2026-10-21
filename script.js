@@ -207,10 +207,9 @@
     intro.classList.add("s1");
     sparkles();
     petalBurst();
-    setTimeout(() => intro.classList.add("s2"), 2000);
-    setTimeout(() => intro.classList.add("s3"), 2900);
-    setTimeout(() => intro.classList.add("s4"), 3700);
-    finish(4400);
+    setTimeout(() => intro.classList.add("s2"), 1500);   // seal becomes the medallion; Ganesha is drawn
+    setTimeout(() => intro.classList.add("s3"), 4900);   // blessing light rises
+    finish(5800);
   }
   function finish(at) {
     setTimeout(() => {
@@ -474,7 +473,9 @@
       const canvas = $("canvas", box);
       const value = $(".sv-card", box) || $("b", box);
       const ctx = canvas.getContext("2d", { willReadFrequently: true });
-      let drawing = false, last = null, moves = 0, done = false, w = 0, h = 0;
+      // two swipes reveal the date: each swipe counts once it travels SWIPE px
+      const SWIPE = 28;
+      let drawing = false, last = null, moves = 0, done = false, w = 0, h = 0, swipes = 0, travel = 0, counted = false;
 
       function paint() {
         const r = box.getBoundingClientRect();
@@ -534,14 +535,19 @@
       function scratch(p) {
         ctx.globalCompositeOperation = "destination-out";
         const a = last || p;
-        ctx.lineWidth = 24; ctx.lineCap = "round"; ctx.lineJoin = "round";
+        travel += Math.hypot(p.x - a.x, p.y - a.y);
+        if (!counted && travel >= SWIPE) {
+          counted = true;
+          if (++swipes >= 2) { reveal(); return; }
+        }
+        ctx.lineWidth = 34; ctx.lineCap = "round"; ctx.lineJoin = "round";
         ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(p.x + .1, p.y); ctx.stroke();
         // ragged foil edge
         const steps = Math.max(1, Math.hypot(p.x - a.x, p.y - a.y) / 6);
         for (let i = 0; i <= steps; i++) {
           const x = a.x + (p.x - a.x) * i / steps, y = a.y + (p.y - a.y) * i / steps;
           for (let k = 0; k < 3; k++) {
-            const ang = Math.random() * 6.283, d = 11 + Math.random() * 6;
+            const ang = Math.random() * 6.283, d = 16 + Math.random() * 6;
             ctx.beginPath(); ctx.arc(x + Math.cos(ang) * d, y + Math.sin(ang) * d, 1 + Math.random() * 2.4, 0, 6.283); ctx.fill();
           }
         }
@@ -555,7 +561,7 @@
         const { data } = ctx.getImageData(0, 0, canvas.width, canvas.height);
         let clear = 0, total = 0;
         for (let i = 3; i < data.length; i += 32) { total++; if (data[i] === 0) clear++; }
-        if (clear / total > .42) reveal();
+        if (clear / total > .3) reveal();
       }
       function reveal() {
         if (done) return;
@@ -580,7 +586,7 @@
           }, 350);
         }
       }
-      canvas.addEventListener("pointerdown", (e) => { dropHint(); drawing = true; last = null; try { canvas.setPointerCapture(e.pointerId); } catch (err) {} scratch(pos(e)); });
+      canvas.addEventListener("pointerdown", (e) => { if (done) return; dropHint(); drawing = true; last = null; travel = 0; counted = false; try { canvas.setPointerCapture(e.pointerId); } catch (err) {} scratch(pos(e)); });
       canvas.addEventListener("pointermove", (e) => { if (drawing) scratch(pos(e)); });
       const stop = () => { drawing = false; last = null; if (!done) check(); };
       canvas.addEventListener("pointerup", stop);

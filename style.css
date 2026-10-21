@@ -77,7 +77,6 @@ a { color: inherit; }
   z-index: 1;
 }
 .env-letter::after { content: ""; position: absolute; inset: 0; pointer-events: none; box-shadow: 0 0 40px 10px rgba(255, 214, 140, .55); opacity: 0; transition: opacity 1s ease; }
-.intro.s3 .env-letter::after { opacity: 1; }
 .letter-te { font-family: var(--telugu); font-size: 20px; color: var(--kumkum); line-height: 1; }
 .letter-small { font-family: var(--tap); font-size: 11px; letter-spacing: .26em; text-transform: uppercase; color: var(--rain); }
 .letter-names { font-family: var(--script); font-size: 38px; color: var(--sun-deep); }
@@ -176,13 +175,9 @@ a { color: inherit; }
 .intro.s1 .seal::before { box-shadow: 0 0 22px 8px rgba(255, 214, 130, .85), 0 0 60px 26px rgba(255, 196, 90, .45); }
 .intro.s1 .seal-text { transform: scale(1.1); filter: drop-shadow(0 0 4px rgba(255, 236, 170, 1)) drop-shadow(0 0 12px rgba(255, 196, 90, .95)); }
 .intro.s1 .seams path { stroke-dashoffset: 0; opacity: 1; transition-delay: .35s; }
-.intro.s2 .seal { transform: translate(-50%, -50%) scale(1.25); opacity: 0; }
-.intro.s2 .env-top { transform: rotateX(180deg); filter: brightness(1.08); }
-.intro.s2 .env-inner-light { opacity: 1; }
+.intro.s2 .seal { transform: translate(-50%, -50%) scale(1.6); opacity: 0; transition: transform 1s cubic-bezier(.3, .6, .3, 1), opacity .7s ease; }
 .intro.s2 .seams path { opacity: 0; transition: opacity .6s; }
-.intro.s3 .env-top { z-index: 0; }
-.intro.s3 .env-letter { transform: translateY(-38%); }
-.intro.s4 .flash { opacity: 1; }
+.intro.s3 .flash { opacity: 1; }
 .intro.out { opacity: 0; pointer-events: none; }
 
 /* ================= PAGE ================= */
@@ -591,12 +586,12 @@ a { color: inherit; }
 #lotusPetals { transform-box: view-box; transform-origin: 0 0; }
 .intro.s1 .lotus .petal { animation: bloom 1.15s cubic-bezier(.2, .85, .25, 1.12) var(--d) forwards; }
 .intro.s1 .lotus .lotus-glow { opacity: 1; transform: scale(1); }
-.intro.s1 #lotusPetals { animation: lotusTurn 9s linear forwards; }
+.intro.s1 .lotus { animation: lotusTurn 9s linear forwards; }
 @keyframes bloom { 0% { transform: scale(.15, 0); opacity: 0; } 45% { opacity: 1; } 100% { transform: scale(1, 1); opacity: 1; } }
-@keyframes lotusTurn { to { transform: rotate(24deg); } }
-.intro.s2 .lotus { transform: translate(-50%, -62%) scale(1.5); opacity: 0; }
+@keyframes lotusTurn { from { rotate: 0deg; } to { rotate: 24deg; } }
+.intro.s3 .lotus { transform: translate(-50%, -54%) scale(1.18); opacity: 0; transition: transform 1.6s cubic-bezier(.3, 0, .2, 1), opacity 1.2s ease; }
 .lotus-rays {
-  position: absolute; left: 50%; top: 50%; width: 170%; aspect-ratio: 1; z-index: 6; pointer-events: none;
+  position: absolute; left: 50%; top: 50%; width: 135%; aspect-ratio: 1; z-index: 6; pointer-events: none;
   transform: translate(-50%, -50%) scale(.3) rotate(0deg); opacity: 0;
   background: repeating-conic-gradient(from 0deg, rgba(255, 214, 130, .55) 0deg 3deg, rgba(255, 214, 130, 0) 3deg 15deg);
   -webkit-mask: radial-gradient(circle, #000 0 14%, transparent 58%); mask: radial-gradient(circle, #000 0 14%, transparent 58%);
@@ -604,7 +599,7 @@ a { color: inherit; }
 }
 .intro.s1 .lotus-rays { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(25deg); animation: raysSpin 12s linear infinite; }
 @keyframes raysSpin { from { rotate: 0deg; } to { rotate: 360deg; } }
-.intro.s2 .lotus-rays { opacity: 0; }
+.intro.s3 .lotus-rays { opacity: 0; }
 .shock { position: absolute; left: 50%; top: 50%; width: 27%; aspect-ratio: 1; border-radius: 50%; z-index: 8; pointer-events: none; border: 3px solid #FFD98A; box-shadow: 0 0 18px rgba(255, 200, 100, .8), inset 0 0 12px rgba(214, 50, 40, .5); transform: translate(-50%, -50%); opacity: 0; }
 .intro.s1 .shock { animation: shock 1.3s cubic-bezier(.2, .6, .3, 1) .05s; }
 .intro.s1 .shock.s-2 { animation-delay: .45s; border-color: #E0453A; }
@@ -672,7 +667,6 @@ a { color: inherit; }
 
 /* intro: retire the bloom pieces once they have faded, keep the spinning rays on their own layer */
 .lotus-rays { will-change: transform, opacity; }
-.intro.s4 .lotus, .intro.s4 .lotus-rays, .intro.s4 .seams, .intro.s4 .sparkles, .intro.s4 .shock { display: none; }
 .intro.out .envelope { will-change: transform; }
 
 /* scroll-linked motion on the compositor thread (Chrome/Edge/Android, Safari 26+); JS covers older browsers */
@@ -702,3 +696,48 @@ a { color: inherit; }
 .date-note { margin-top: 26px; }
 .sv-subha { font-family: var(--telugu); font-size: 20px; letter-spacing: 1px; }
 .hv-date.te { font-family: var(--telugu); font-weight: 400; font-size: 18px; letter-spacing: 1px; text-transform: none; color: var(--kumkum); }
+
+/* ================= LORD GANESHA IN THE LOTUS ================= */
+.ganesha-halo {
+  position: absolute; left: 50%; top: 50%; width: 96%; aspect-ratio: 1; z-index: 8; pointer-events: none;
+  background: radial-gradient(circle, rgba(255, 236, 180, .9) 0%, rgba(255, 206, 120, .4) 38%, rgba(255, 200, 110, 0) 68%);
+  transform: translate(-50%, -50%) scale(.5); opacity: 0;
+  transition: transform 1.6s cubic-bezier(.2, .8, .2, 1), opacity 1.2s ease;
+}
+.intro.s2 .ganesha-halo { transform: translate(-50%, -50%) scale(1); opacity: 1; animation: haloBreath 2.6s ease-in-out 1.6s infinite alternate; }
+@keyframes haloBreath { from { opacity: 1; } to { opacity: .7; } }
+.ganesha {
+  position: absolute; left: 50%; top: 50%; width: 56%; aspect-ratio: 1; z-index: 9; pointer-events: none;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 34%, #D23A33 0%, #A3101C 52%, #5E0610 100%);
+  box-shadow: 0 0 0 3px #E2B04F, 0 0 0 7px #8E0B16, 0 0 0 9px #F3D58E, 0 14px 30px rgba(80, 10, 10, .35);
+  transform: translate(-50%, -50%) scale(.48); opacity: 0;
+  transition: transform 1.3s cubic-bezier(.2, .85, .25, 1.05), opacity .8s ease;
+}
+.ganesha svg { position: absolute; left: 7%; top: 6%; width: 86%; height: 86%; overflow: visible; }
+.intro.s2 .ganesha { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+.g-line { stroke-dasharray: 1; stroke-dashoffset: 1; }
+.intro.s2 .g-line { animation: gDraw 1.7s cubic-bezier(.45, .1, .25, 1) calc(var(--gd) + .45s) forwards; }
+@keyframes gDraw { to { stroke-dashoffset: 0; } }
+.g-fill { opacity: 0; transition: opacity 1s ease 2.2s; }
+.intro.s2 .g-fill { opacity: 1; }
+.ganesha-mantra {
+  position: absolute; left: 0; right: 0; top: 79%; z-index: 9; pointer-events: none;
+  display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center;
+  opacity: 0; transform: translateY(12px);
+  transition: opacity 1.1s ease 1.9s, transform 1.1s cubic-bezier(.2, .7, .2, 1) 1.9s;
+}
+.ganesha-mantra .te { font-family: var(--telugu); font-size: 22px; color: #9E1020; text-shadow: 0 0 10px rgba(255, 240, 205, 1), 0 0 2px rgba(255, 255, 255, .9); }
+.ganesha-mantra small { font-family: var(--tap); font-size: 10px; letter-spacing: .32em; text-transform: uppercase; color: #8E5E18; text-shadow: 0 0 6px rgba(255, 246, 225, 1); }
+.intro.s2 .ganesha-mantra { opacity: 1; transform: none; }
+/* blessing light: Ganesha and the lotus rise gently into warm light */
+.intro.s3 .ganesha { transform: translate(-50%, -56%) scale(1.12); opacity: 0; transition: transform 1.6s cubic-bezier(.3, 0, .2, 1), opacity 1.2s ease .25s; }
+.intro.s3 .ganesha-halo { transform: translate(-50%, -50%) scale(2.2); opacity: 0; animation: none; transition: transform 1.6s ease, opacity 1.4s ease .3s; }
+.intro.s3 .ganesha-mantra { opacity: 0; transform: translateY(-8px); transition: opacity .8s ease, transform .8s ease; }
+.flash { transition: opacity 1.3s ease; }
+
+/* intro smoothness: pre-promote the moving pieces, stop idle effects once tapped */
+.lotus, .lotus-rays, .ganesha, .ganesha-halo, .flash, .seal { will-change: transform, opacity; }
+.intro.s1 .seal::after { animation: none; opacity: 0; }
+.intro.s1 .tap-label, .intro.s1 .tap-chevron { animation: none; }
+.intro.s2 .shock { display: none; }

@@ -129,6 +129,45 @@
       <g id="lotusPetals"></g>
     </svg>
     <span class="shock"></span><span class="shock s-2"></span>
+    <div class="ganesha-halo" aria-hidden="true"></div>
+    <div class="ganesha" aria-hidden="true">
+      <svg viewBox="0 0 200 200">
+        <g fill="none" stroke="#F6D47E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <!-- crown (kireetam) -->
+          <path class="g-line" style="--gd:0s" pathLength="1" d="M70 62H130M72 62L80 42H120L128 62"/>
+          <path class="g-line" style="--gd:.15s" pathLength="1" d="M84 42L90 27H110L116 42M93 27Q100 10 107 27"/>
+          <circle class="g-line" style="--gd:.3s" pathLength="1" cx="100" cy="12" r="3"/>
+          <!-- head and ears -->
+          <path class="g-line" style="--gd:.35s" pathLength="1" d="M73 64C64 74 63 92 72 104C78 112 84 116 87 124M127 64C136 74 137 92 128 104C122 112 116 116 113 124"/>
+          <path class="g-line" style="--gd:.5s" pathLength="1" d="M72 68C50 56 30 70 33 94C36 116 52 128 70 120M128 68C150 56 170 70 167 94C164 116 148 128 130 120"/>
+          <path class="g-line" style="--gd:.65s" pathLength="1" d="M68 78C54 72 44 84 46 96C48 108 58 114 66 110M132 78C146 72 156 84 154 96C152 108 142 114 134 110"/>
+          <!-- brows and eyes -->
+          <path class="g-line" style="--gd:.8s" pathLength="1" d="M78 79Q86 75 94 78M106 78Q114 75 122 79"/>
+          <path class="g-line" style="--gd:.9s" pathLength="1" d="M79 86Q86 80 93 86Q86 90 79 86ZM107 86Q114 80 121 86Q114 90 107 86Z"/>
+          <!-- shoulders and garland -->
+          <path class="g-line" style="--gd:1.2s" pathLength="1" d="M44 150C52 136 62 132 70 132M156 150C148 136 138 132 130 132"/>
+          <path class="g-line" style="--gd:1.3s" pathLength="1" d="M62 140Q100 192 138 140"/>
+        </g>
+        <!-- trunk (gold-edged tube) -->
+        <path class="g-line" style="--gd:1s" pathLength="1" d="M100 96C101 118 98 140 104 156C110 172 128 174 132 162C135 152 124 146 118 153" fill="none" stroke="#F6D47E" stroke-width="15" stroke-linecap="round"/>
+        <path class="g-line" style="--gd:1.05s" pathLength="1" d="M100 96C101 118 98 140 104 156C110 172 128 174 132 162C135 152 124 146 118 153" fill="none" stroke="#8E0B16" stroke-width="10.5" stroke-linecap="round"/>
+        <g class="g-fill">
+          <path d="M95 112h10M94 124h11M95 136h10M97 147h10" stroke="#F6D47E" stroke-width="1.4" stroke-linecap="round"/>
+          <circle cx="86" cy="85.5" r="1.8" fill="#F6D47E"/><circle cx="114" cy="85.5" r="1.8" fill="#F6D47E"/>
+          <path d="M100 63C103.6 70 103.6 76 100 81C96.4 76 96.4 70 100 63Z" fill="#FF5A45" stroke="#F6D47E" stroke-width=".8"/>
+          <path d="M112 122C120 126 125 134 123 142C119 136 114 131 110 128Z" fill="#FFF4D6" stroke="#F6D47E" stroke-width="1"/>
+          <path d="M88 122L83 126L86 129Z" fill="#FFF4D6" stroke="#F6D47E" stroke-width="1"/>
+          <g fill="#F6D47E"><circle cx="70" cy="152" r="2.3"/><circle cx="80" cy="162" r="2.3"/><circle cx="91" cy="168" r="2.3"/><circle cx="120" cy="162" r="2.3"/><circle cx="130" cy="152" r="2.3"/></g>
+          <circle cx="96" cy="177" r="4.2" fill="#E0453A" stroke="#F6D47E" stroke-width="1.2"/>
+          <g fill="#F6D47E"><circle cx="86" cy="52" r="1.8"/><circle cx="114" cy="52" r="1.8"/></g>
+          <circle cx="100" cy="52" r="3.2" fill="#E0453A" stroke="#F6D47E" stroke-width="1"/>
+        </g>
+      </svg>
+    </div>
+    <div class="ganesha-mantra" aria-hidden="true">
+      <span class="te">|| శ్రీ గణేశాయ నమః ||</span>
+      <small>Om Sri Ganeshaya Namah</small>
+    </div>
     <div class="seal" id="seal">
       <svg viewBox="0 0 100 100" aria-hidden="true">
         <defs>
@@ -705,7 +744,7 @@
   <svg class="ic-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
   <svg class="ic-play" viewBox="0 0 24 24" aria-hidden="true"><polygon points="5,3 19,12 5,21"/></svg>
 </button>
-<audio id="bgm" loop preload="auto"></audio>
+<audio id="bgm" loop preload="none"></audio>
 
 <script src="config.js"></script>
 <script src="script.js"></script>
