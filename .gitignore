@@ -1,0 +1,7 @@
+# full-size originals (the page uses the compressed .jpg copies)
+assets/texas-oasis.png
+assets/washington-ghibli.webp
+
+.vercel
+.DS_Store
+Thumbs.db
