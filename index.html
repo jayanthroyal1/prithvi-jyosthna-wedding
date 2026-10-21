@@ -168,7 +168,7 @@
           <p class="h-welcome">Welcome to the</p>
           <p class="h-ceremony">Wedding Ceremony of</p>
           <p class="hv-names"><span>Prithvi</span><i>&amp;</i><span>Jyosthna</span></p>
-          <p class="hv-date">December 19, 2026 · 7:49 AM CST</p>
+          <p class="hv-date te">శుభ వివాహం</p>
         </div>
       </div>
 
@@ -269,15 +269,13 @@
                 <text x="220" y="478" class="sv-name">Prithvi</text>
                 <text x="220" y="510" class="sv-amp">&amp;</text>
                 <text x="220" y="554" class="sv-name">Jyosthna</text>
-                <text x="220" y="588" class="sv-date">19 · DECEMBER · 2026</text>
-                <text x="220" y="606" class="sv-muhurtham"><tspan class="sv-te">సుముహూర్తం</tspan><tspan dx="6">7:49 AM CST</tspan></text>
+                <text x="220" y="596" class="sv-subha">శుభ వివాహం</text>
               </g>
               <text x="220" y="478" class="sv-name" fill="url(#nameGold)">Prithvi</text>
               <text x="220" y="510" class="sv-amp" fill="#F3C969">&amp;</text>
               <text x="220" y="554" class="sv-name" fill="url(#nameGold)">Jyosthna</text>
               <path d="M168 568H272" stroke="#F3C969" stroke-width=".8" opacity=".7"/>
-              <text x="220" y="588" class="sv-date" fill="#FFF1D0">19 · DECEMBER · 2026</text>
-              <text x="220" y="606" class="sv-muhurtham" fill="#FFD58C"><tspan class="sv-te">సుముహూర్తం</tspan><tspan dx="6">7:49 AM CST</tspan></text>
+              <text x="220" y="596" class="sv-subha" fill="#FFD58C">శుభ వివాహం</text>
             </g>
             <!-- tera: the cloth screen held between bride and groom, lowered at the muhurtham -->
             <g class="tera">
@@ -477,27 +475,39 @@
     </div>
   </section>
 
-  <!-- THE DATE -->
+  <!-- THE DATES: two scratch cards, one per day -->
   <section class="sec date" id="date">
-    <h2 class="t-script" data-lift>The Date</h2>
-    <p class="hint" data-lift>✦ Scratch to reveal the date ✦</p>
-    <div class="scratch-row">
+    <h2 class="t-script" data-lift>The Dates</h2>
+    <p class="hint" data-lift>✦ Scratch to reveal the dates ✦</p>
+    <div class="scratch-row two">
       <div class="scratch-cell">
-        <div class="scratch-box"><b id="dDay">19</b><canvas></canvas><span class="shine"></span></div>
-        <span class="lbl">Day</span>
+        <span class="lbl">The Wedding</span>
+        <div class="scratch-box tall">
+          <div class="sv-card">
+            <span class="sc-day">Saturday</span>
+            <b>19</b>
+            <span class="sc-month">December 2026</span>
+            <span class="sc-time"><span class="te">సుముహూర్తం</span> 7:49 AM CST</span>
+          </div>
+          <canvas aria-label="Scratch to reveal the wedding date"></canvas><span class="shine"></span>
+        </div>
       </div>
       <div class="scratch-cell">
-        <div class="scratch-box"><b id="dMonth">Dec</b><canvas></canvas><span class="shine"></span></div>
-        <span class="lbl">Month</span>
-      </div>
-      <div class="scratch-cell">
-        <div class="scratch-box"><b id="dYear">2026</b><canvas></canvas><span class="shine"></span></div>
-        <span class="lbl">Year</span>
+        <span class="lbl">The Celebration</span>
+        <div class="scratch-box tall">
+          <div class="sv-card">
+            <span class="sc-day">Sunday</span>
+            <b>20</b>
+            <span class="sc-month">December 2026</span>
+            <span class="sc-time">6 PM CST onwards</span>
+          </div>
+          <canvas aria-label="Scratch to reveal the celebration date"></canvas><span class="shine"></span>
+        </div>
       </div>
     </div>
+    <p class="save-date" id="saveDate">Save the Dates</p>
+    <p class="weekday" id="dWeekday">Serengeti Estates · Melissa, Texas</p>
     <p class="body-17 date-note" data-lift>A little rain. A little sunshine.<br>Something good brewing.</p>
-    <p class="save-date" id="saveDate">Save the Date</p>
-    <p class="weekday" id="dWeekday">Saturday, December 19, 2026</p>
   </section>
 
   <!-- STORY -->

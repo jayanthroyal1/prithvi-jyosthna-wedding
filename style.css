@@ -686,3 +686,19 @@ a { color: inherit; }
   .scroll-progress { animation: progressGrow linear both; animation-timeline: scroll(root block); }
   @keyframes progressGrow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 }
+
+/* two-day scratch cards */
+.scratch-row.two { gap: 18px; }
+.scratch-row.two .scratch-cell { gap: 10px; }
+.scratch-box.tall { width: 148px; height: 178px; }
+.sv-card { display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 0 6px; text-align: center; }
+.sv-card .sc-day { font-family: var(--caps); font-weight: 700; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--rust); }
+.scratch-box .sv-card b { font-family: var(--serif); font-weight: 400; font-size: 60px; line-height: 1; color: var(--evergreen); letter-spacing: -.02em; }
+.sv-card .sc-month { font-family: var(--caps); font-weight: 700; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--sun-deep); }
+.sv-card .sc-time { font-family: var(--caps); font-size: 11px; letter-spacing: .5px; color: var(--rain-ink); margin-top: 6px; line-height: 1.3; }
+.sv-card .sc-time .te { font-family: var(--telugu); font-size: 13px; letter-spacing: 0; color: var(--kumkum); }
+.scratch-box.done .sv-card b { text-shadow: 0 0 14px rgba(215, 162, 62, .55); }
+.save-date { margin-top: 22px; }
+.date-note { margin-top: 26px; }
+.sv-subha { font-family: var(--telugu); font-size: 20px; letter-spacing: 1px; }
+.hv-date.te { font-family: var(--telugu); font-weight: 400; font-size: 18px; letter-spacing: 1px; text-transform: none; color: var(--kumkum); }

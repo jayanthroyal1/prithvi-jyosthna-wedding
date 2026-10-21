@@ -472,7 +472,7 @@
 
     boxes.forEach((box) => {
       const canvas = $("canvas", box);
-      const value = $("b", box);
+      const value = $(".sv-card", box) || $("b", box);
       const ctx = canvas.getContext("2d", { willReadFrequently: true });
       let drawing = false, last = null, moves = 0, done = false, w = 0, h = 0;
 
