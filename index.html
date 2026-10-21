@@ -94,17 +94,17 @@
     <div class="env-flap env-bottom"></div>
     <div class="env-flap env-top"></div>
     <svg class="seams" viewBox="0 0 440 780" preserveAspectRatio="none" aria-hidden="true">
-      <defs>
-        <filter id="seamGlow" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur stdDeviation="4" result="b"/>
-          <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-        </filter>
-      </defs>
-      <g filter="url(#seamGlow)" stroke="#FFD98A" stroke-width="2.4" fill="none" stroke-linecap="round">
-        <path pathLength="1" d="M220 413L0 0"/>
-        <path pathLength="1" d="M220 413L440 0"/>
-        <path pathLength="1" d="M220 367L0 780"/>
-        <path pathLength="1" d="M220 367L440 780"/>
+      <g stroke="#FFC960" stroke-width="14" stroke-opacity=".14" fill="none" stroke-linecap="round">
+        <path pathLength="1" d="M220 413L0 0"/><path pathLength="1" d="M220 413L440 0"/>
+        <path pathLength="1" d="M220 367L0 780"/><path pathLength="1" d="M220 367L440 780"/>
+      </g>
+      <g stroke="#FFD98A" stroke-width="6" stroke-opacity=".35" fill="none" stroke-linecap="round">
+        <path pathLength="1" d="M220 413L0 0"/><path pathLength="1" d="M220 413L440 0"/>
+        <path pathLength="1" d="M220 367L0 780"/><path pathLength="1" d="M220 367L440 780"/>
+      </g>
+      <g stroke="#FFF1C4" stroke-width="2" fill="none" stroke-linecap="round">
+        <path pathLength="1" d="M220 413L0 0"/><path pathLength="1" d="M220 413L440 0"/>
+        <path pathLength="1" d="M220 367L0 780"/><path pathLength="1" d="M220 367L440 780"/>
       </g>
     </svg>
     <div class="lotus-rays" aria-hidden="true"></div>
@@ -195,10 +195,6 @@
               <stop offset="1" stop-color="#F7EBD6"/>
             </linearGradient>
             <filter id="softBlur" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="7"/></filter>
-            <filter id="grain" x="0" y="0" width="100%" height="100%">
-              <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4"/>
-              <feColorMatrix values="0 0 0 0 .45  0 0 0 0 .32  0 0 0 0 .15  0 0 0 .08 0"/>
-            </filter>
           </defs>
           <rect x="-40" y="-80" width="520" height="940" fill="url(#skyY)"/>
           <ellipse class="halo" cx="220" cy="480" rx="270" ry="310" fill="url(#halo)"/>
@@ -217,7 +213,6 @@
             <path d="M-44 0C-44 -24 -10 -24 0 0C10 -24 44 -24 44 0C44 24 10 24 0 0C-10 24 -44 24 -44 0Z"/>
             <g id="mugguDots" fill="#A3242B" stroke="none"></g>
           </g>
-          <rect x="-40" y="-80" width="520" height="940" filter="url(#grain)"/>
         </svg>
 
         <!-- INNER: kumkum-red sanctum with names & date, revealed when the tera is lowered -->
@@ -263,8 +258,20 @@
               <path d="M209 430c0-13 5-20 11-20s11 7 11 20h3v3h-28v-3Z" fill="url(#bellG)"/>
               <circle cx="220" cy="436" r="2.6" fill="#8E5E18"/>
             </g>
-            <!-- names & date -->
-            <g class="sanctum-text" filter="url(#textGlow)" text-anchor="middle">
+            <!-- names & date: soft halo + shadow copies instead of a blur filter -->
+            <g class="sanctum-text" text-anchor="middle">
+              <g fill="none" stroke="#FFC66B" stroke-opacity=".22" stroke-width="7" stroke-linejoin="round">
+                <text x="220" y="478" class="sv-name">Prithvi</text>
+                <text x="220" y="510" class="sv-amp">&amp;</text>
+                <text x="220" y="554" class="sv-name">Jyosthna</text>
+              </g>
+              <g fill="#2A0606" fill-opacity=".6" transform="translate(0 1.6)">
+                <text x="220" y="478" class="sv-name">Prithvi</text>
+                <text x="220" y="510" class="sv-amp">&amp;</text>
+                <text x="220" y="554" class="sv-name">Jyosthna</text>
+                <text x="220" y="588" class="sv-date">19 · DECEMBER · 2026</text>
+                <text x="220" y="606" class="sv-muhurtham"><tspan class="sv-te">సుముహూర్తం</tspan><tspan dx="6">7:49 AM CST</tspan></text>
+              </g>
               <text x="220" y="478" class="sv-name" fill="url(#nameGold)">Prithvi</text>
               <text x="220" y="510" class="sv-amp" fill="#F3C969">&amp;</text>
               <text x="220" y="554" class="sv-name" fill="url(#nameGold)">Jyosthna</text>
@@ -290,8 +297,9 @@
           </g>
         </svg>
 
+
         <!-- MANDAPAM: solid gold frame -->
-        <svg class="layer l-mandapam" viewBox="0 0 440 780" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <svg class="layer l-mandapam" id="sheenLayer" viewBox="0 0 440 780" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
           <defs>
             <linearGradient id="cyl" x1="0" x2="1">
               <stop offset="0" stop-color="#6E4610"/>
@@ -328,9 +336,6 @@
               <stop offset="1" stop-color="#fff" stop-opacity="0"/>
               <animateTransform attributeName="gradientTransform" type="translate" values="-520 0;520 0;520 0" keyTimes="0;.55;1" dur="6s" repeatCount="indefinite"/>
             </linearGradient>
-            <filter id="frameShadow" x="-10%" y="-10%" width="120%" height="125%">
-              <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#3A2408" flood-opacity=".38"/>
-            </filter>
             <g id="goldSil">
               <path d="M48 348H392V360H48Z"/><path d="M86 316H354V336H86Z"/><path d="M120 290H320V306H120Z"/><path d="M150 268H290V282H150Z"/>
               <path d="M60 360H380V430H346C346 400 300 384 220 382C140 384 94 400 94 430H60Z"/>
@@ -338,7 +343,9 @@
               <path d="M52 690H388V700H52Z"/><path d="M38 706H402V718H38Z"/>
             </g>
           </defs>
-          <g filter="url(#frameShadow)">
+          <use href="#goldSil" fill="#3A2408" fill-opacity=".12" transform="translate(0 9)"/>
+          <use href="#goldSil" fill="#3A2408" fill-opacity=".16" transform="translate(0 4)"/>
+          <g>
             <path d="M58 684H382L388 690H52Z" fill="url(#slabTop)"/><path d="M52 690H388V700H52Z" fill="url(#slabFront)"/>
             <path d="M44 700H396L402 706H38Z" fill="url(#slabTop)"/><path d="M38 706H402V718H38Z" fill="url(#slabFront)"/>
             <rect x="72" y="420" width="22" height="262" fill="url(#cyl)"/>
@@ -361,9 +368,10 @@
             <path d="M172 262Q220 222 268 262Z" fill="url(#domeG)"/>
             <use href="#kalasam" x="206" y="200" width="28" height="33"/>
           </g>
-          <use href="#goldSil" fill="url(#sheen)" style="mix-blend-mode:screen"/>
+          <use href="#goldSil" fill="url(#sheen)"/>
           <g id="swags"></g>
         </svg>
+
 
         <!-- TEXT above the roof -->
         <div class="layer l-text">
@@ -428,7 +436,7 @@
 
           <!-- homam (sacred fire) -->
           <g transform="translate(33 77) scale(.85)">
-          <circle class="fire-light" cx="220" cy="668" r="90" fill="url(#fireLight)" style="mix-blend-mode:screen"/>
+          <circle class="fire-light" cx="220" cy="668" r="90" fill="url(#fireLight)"/>
           <g class="smoke" filter="url(#smokeBlur)" fill="none" stroke="#FFFFFF" stroke-linecap="round">
             <path class="wisp w1" d="M216 650c-8-14 8-24 0-38s8-24 0-38" stroke-width="7" stroke-opacity=".22"/>
             <path class="wisp w2" d="M224 650c8-14-8-24 0-38s-8-24 0-38" stroke-width="6" stroke-opacity=".18"/>
@@ -457,7 +465,6 @@
         </svg>
 
         <canvas class="layer talambralu" id="talambralu"></canvas>
-        <div class="layer bokeh" id="bokeh" aria-hidden="true"></div>
       </div>
 
       <svg class="torana" id="toranaHero" viewBox="0 0 440 86" preserveAspectRatio="xMidYMin meet" aria-hidden="true"></svg>
@@ -501,7 +508,7 @@
       <p class="state" data-fade>Washington</p>
       <svg class="sway sw-a deco deco-l" aria-hidden="true"><use href="#sprig"/></svg>
       <figure class="photo" data-fadeup>
-        <img src="assets/washington.jpg" alt="Jyosthna and Prithvi on a snowy Washington mountain" loading="lazy" width="1100" height="826">
+        <img src="assets/washington.jpg" alt="Jyosthna and Prithvi on a snowy Washington mountain" loading="lazy" decoding="async" width="1100" height="826">
       </figure>
       <p class="tagline" data-lift>Evergreen Escapes.<br>Sun-Kissed Peaks.<br>The Rhythm of Rain.</p>
       <p class="body-21" data-lift>Where mountains touch the clouds, evergreens stretch for miles, and there’s always room for a good cup of coffee.</p>
@@ -518,7 +525,7 @@
       <p class="state sun" data-fade>Texas</p>
       <svg class="sway sw-b deco deco-r" aria-hidden="true"><use href="#bluebonnet"/></svg>
       <figure class="photo" data-fadeup>
-        <img src="assets/texas.jpg" alt="Prithvi and Jyosthna at a Texas lake at sunset" loading="lazy" width="1100" height="734">
+        <img src="assets/texas.jpg" alt="Prithvi and Jyosthna at a Texas lake at sunset" loading="lazy" decoding="async" width="1100" height="734">
       </figure>
       <p class="tagline" data-lift>Golden Sunsets.<br>Wide-Open Skies.<br>A Little Southern Charm.</p>
       <p class="body-21" data-lift>Where the skies stretch endlessly, sunsets paint the horizon, and there’s always time for a comforting cup of chai.</p>

@@ -216,18 +216,23 @@
     setTimeout(() => {
       document.body.classList.remove("locked");
       window.scrollTo(0, 0);
+      pageLive = true;
+      heroSection.classList.remove("paused");
       page.classList.add("show");
       intro.classList.add("out");
       initScratch();
       if (hasVideo) heroVideo.play().catch(() => {});
-      talambralu.start();
       onScroll();
+      // particles start once the envelope has faded, so the hand-over stays smooth
+      setTimeout(() => talambralu.start(), 1450);
     }, at);
     setTimeout(() => intro.remove(), at + 1500);
   }
 
   /* ---------- hero video (assets/hero.mp4) takes over when present ---------- */
   const heroSection = $(".hero");
+  let pageLive = false;
+  heroSection.classList.add("paused");
   const heroVideoWrap = $("#heroVideoWrap");
   let heroVideo = null, hasVideo = false;
   if (C.heroVideo) {
@@ -339,19 +344,6 @@
   })();
 
 
-  /* ---------- hero bokeh lights ---------- */
-  (function bokeh() {
-    const box = $("#bokeh");
-    const cols = ["255,226,160", "255,205,120", "255,246,220", "232,137,43"];
-    for (let i = 0; i < 14; i++) {
-      const d = document.createElement("span");
-      const size = 6 + Math.random() * 22;
-      d.style.cssText = `width:${size}px;height:${size}px;left:${Math.random() * 100}%;top:${20 + Math.random() * 75}%;` +
-        `background:radial-gradient(circle, rgba(${cols[i % 4]},.85), rgba(${cols[i % 4]},0) 70%);` +
-        `filter:blur(${(size / 9).toFixed(1)}px);animation-duration:${(9 + Math.random() * 8).toFixed(1)}s;animation-delay:${(-Math.random() * 10).toFixed(1)}s`;
-      box.appendChild(d);
-    }
-  })();
 
   /* ---------- 3D: layers sit at different depths; the stage tilts with pointer / phone tilt / scroll ---------- */
   const stage = $("#stage");
@@ -360,11 +352,14 @@
   function renderTilt() {
     tilt.x += (tilt.tx - tilt.x) * .08;
     tilt.y += (tilt.ty - tilt.y) * .08;
-    stage.style.transform = `rotateX(${(tilt.y + tilt.scroll).toFixed(3)}deg) rotateY(${tilt.x.toFixed(3)}deg)`;
+    stage.style.setProperty("--px", (tilt.x * 1.3).toFixed(2));
+    stage.style.setProperty("--py", (tilt.y * 1.3).toFixed(2));
     if (Math.abs(tilt.tx - tilt.x) > .01 || Math.abs(tilt.ty - tilt.y) > .01) tiltRaf = requestAnimationFrame(renderTilt);
     else tiltRaf = 0;
   }
-  const kick = () => { if (!tiltRaf) tiltRaf = requestAnimationFrame(renderTilt); };
+  const kick = () => { if (!tiltRaf && heroVisibleNow()) tiltRaf = requestAnimationFrame(renderTilt); };
+  let heroVisible = true;
+  const heroVisibleNow = () => heroVisible || scrollY < innerHeight * 1.5;
   if (!reduceMotion) {
     $("#heroScene").addEventListener("pointermove", (e) => {
       if (e.pointerType === "touch") return;
@@ -404,7 +399,7 @@
       { c: "#A3242B", w: 1.6, h: 1.6 }    // kumkum speck
     ];
     function size() {
-      const r = cv.getBoundingClientRect(), dpr = Math.min(devicePixelRatio || 1, 2);
+      const r = cv.getBoundingClientRect(), dpr = Math.min(devicePixelRatio || 1, 1.5);
       W = r.width; H = r.height;
       cv.width = W * dpr; cv.height = H * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -413,8 +408,26 @@
       const k = kinds[Math.floor(Math.random() * kinds.length)];
       return { ...k, x: Math.random() * W, y: initial ? Math.random() * H : -10, vy: .35 + Math.random() * .7, ph: Math.random() * 6.28, rot: Math.random() * 6.28, vr: (Math.random() - .5) * .05 };
     }
+    // soft bokeh orbs, rendered once to sprites and then just stamped each frame
+    const orbCols = ["255,226,160", "255,205,120", "255,246,220", "232,137,43"];
+    const sprites = orbCols.map((col) => {
+      const c = document.createElement("canvas"); c.width = c.height = 64;
+      const g = c.getContext("2d"), gr = g.createRadialGradient(32, 32, 0, 32, 32, 32);
+      gr.addColorStop(0, `rgba(${col},.75)`); gr.addColorStop(.5, `rgba(${col},.35)`); gr.addColorStop(1, `rgba(${col},0)`);
+      g.fillStyle = gr; g.fillRect(0, 0, 64, 64);
+      return c;
+    });
+    let orbs = [];
+    const newOrb = (initial) => ({ s: sprites[Math.floor(Math.random() * sprites.length)], size: 10 + Math.random() * 26, x: Math.random() * W,
+      y: initial ? H * (.2 + Math.random() * .8) : H + 20, vy: .12 + Math.random() * .22, life: initial ? Math.random() : 0 });
     function frame(t) {
       ctx.clearRect(0, 0, W, H);
+      for (const o of orbs) {
+        o.y -= o.vy; o.life += .0025;
+        if (o.y < H * .15 || o.life > 1) Object.assign(o, newOrb(false));
+        ctx.globalAlpha = Math.sin(Math.min(o.life, 1) * Math.PI) * .8;
+        ctx.drawImage(o.s, o.x - o.size / 2, o.y - o.size / 2, o.size, o.size);
+      }
       for (const p of parts) {
         p.y += p.vy; p.rot += p.vr;
         const x = p.x + Math.sin(t / 900 + p.ph) * 10;
@@ -435,7 +448,8 @@
       start() {
         if (running || reduceMotion) return;
         running = true; size();
-        parts = Array.from({ length: W < 400 ? 38 : 50 }, () => spawn(true));
+        parts = Array.from({ length: W < 400 ? 30 : 42 }, () => spawn(true));
+        orbs = Array.from({ length: 12 }, () => newOrb(true));
         raf = requestAnimationFrame(frame);
       }
     };
@@ -597,8 +611,7 @@
     }
   }
 
-  /* ---------- scroll: progress bar, hero parallax, staggered reveals, gentle lift, timeline ---------- */
-  const lifts = $$("[data-lift]");
+  /* ---------- scroll: progress bar, hero lean, timeline (reads first, then writes; no per-element work) ---------- */
   const timeline = $("#timeline");
   const marker = $("#tlMarker");
   const tlFill = document.createElement("div");
@@ -609,40 +622,52 @@
   document.body.appendChild(progress);
   const hero = $(".hero-scene");
   const heroText = $(".l-text .hero-text"), scrollCue = $(".scroll-down");
-  let ticking = false;
+  // layout numbers are measured only when the layout changes, never during scroll
+  let docMax = 1, heroH = 1, tlTop = 0, tlTravel = 1, vh = innerHeight;
+  function measure() {
+    vh = innerHeight;
+    docMax = Math.max(1, document.documentElement.scrollHeight - vh);
+    heroH = hero.offsetHeight || 1;
+    const r = timeline.getBoundingClientRect();
+    tlTop = r.top + scrollY;
+    tlTravel = Math.max(1, r.height - 70);
+  }
+  new ResizeObserver(() => { measure(); onScroll(); }).observe(document.body);
+  let ticking = false, lastHero = -1;
+  // browsers with scroll-driven animations move the hero, fade its text and fill the bar in CSS
+  const cssScroll = window.CSS && CSS.supports("animation-timeline: scroll()");
   function onScroll() {
     ticking = false;
-    const vh = innerHeight, y = scrollY;
-    const max = document.documentElement.scrollHeight - vh;
-    progress.style.transform = `scaleX(${max > 0 ? (y / max).toFixed(4) : 0})`;
+    const y = scrollY;
+    if (!cssScroll) progress.style.transform = `scaleX(${(y / docMax).toFixed(4)})`;
     if (reduceMotion) return;
-    // hero: stage leans back in 3D, text drifts up and fades
-    const hh = hero.offsetHeight;
-    if (y < hh * 1.3) {
-      tilt.scroll = Math.min(y / hh, 1) * 14;
-      kick();
-      const f = Math.min(y / (hh * .55), 1);
-      heroText.style.transform = `translateY(${(-y * .22).toFixed(1)}px)`;
+    if (!cssScroll && (y < heroH * 1.3 || lastHero !== 1)) {
+      const k = Math.min(y / heroH, 1);
+      stage.style.setProperty("--sy", (k * heroH).toFixed(1));
+      const f = Math.min(y / (heroH * .55), 1);
       heroText.style.opacity = (1 - f).toFixed(3);
       scrollCue.style.opacity = Math.max(0, 1 - y / 120).toFixed(3);
+      lastHero = y < heroH * 1.3 ? 0 : 1;
     }
-    for (const el of lifts) {
-      const top = el.getBoundingClientRect().top - (parseFloat(el.style.getPropertyValue("--lift")) || 0);
-      if (top > vh + 40 || top < -400) continue;
-      const p = Math.min(Math.max((vh - top) / 200, 0), 1);
-      el.style.setProperty("--lift", (-20 * p).toFixed(2) + "px");
-    }
-    const r = timeline.getBoundingClientRect();
-    const travel = r.height - 70;
-    const p = Math.min(Math.max((vh * .55 - r.top) / travel, 0), 1);
-    marker.style.setProperty("--y", (p * travel).toFixed(1) + "px");
+    const p = Math.min(Math.max((y + vh * .55 - tlTop) / tlTravel, 0), 1);
+    marker.style.transform = `translateY(${(p * tlTravel).toFixed(1)}px)`;
     tlFill.style.transform = `scaleY(${p.toFixed(4)})`;
   }
   addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
-  addEventListener("resize", onScroll);
+  addEventListener("resize", () => { measure(); onScroll(); });
+  addEventListener("load", () => { measure(); onScroll(); });
+  measure();
+
+  /* pause the hero's animations, particles and gold sheen while it is off-screen */
+  const sheenSvg = $("#sheenLayer");
+  new IntersectionObserver((e) => {
+    heroVisible = e[0].isIntersecting;
+    heroSection.classList.toggle("paused", !heroVisible || !pageLive);
+    try { heroVisible ? sheenSvg.unpauseAnimations() : sheenSvg.pauseAnimations(); } catch (err) {}
+  }).observe(hero);
 
   /* reveal: text rises out of a soft blur, staggered within each batch */
-  lifts.forEach((el) => el.classList.add("rv"));
+  $$("[data-lift]").forEach((el) => el.classList.add("rv"));
   const io = new IntersectionObserver((entries) => {
     const shown = entries.filter((en) => en.isIntersecting)
       .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
@@ -668,11 +693,13 @@
   /* ---------- map (loads when near) ---------- */
   const mapIo = new IntersectionObserver((entries) => {
     if (!entries[0].isIntersecting) return;
+    mapIo.disconnect();
+    (window.requestIdleCallback || ((fn) => setTimeout(fn, 300)))(() => {
     const f = document.createElement("iframe");
     f.title = "Map to Serengeti Estates"; f.loading = "lazy"; f.referrerPolicy = "no-referrer-when-downgrade";
     f.src = `https://www.google.com/maps?q=${q}&output=embed`;
     $("#map").appendChild(f);
-    mapIo.disconnect();
+    }, { timeout: 1500 });
   }, { rootMargin: "400px" });
   mapIo.observe($("#map"));
 
