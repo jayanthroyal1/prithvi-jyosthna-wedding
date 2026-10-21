@@ -87,6 +87,57 @@
   }
   $$(".torana").forEach(torana);
 
+
+  /* ---------- lotus that blooms behind the seal ---------- */
+  (function lotus() {
+    const g = $("#lotusPetals");
+    const layers = [
+      { n: 10, len: 92, w: 24, off: 0, fill: "url(#petalOuter)", d: 0 },
+      { n: 10, len: 72, w: 20, off: 18, fill: "url(#petalMid)", d: .22 },
+      { n: 8, len: 52, w: 15, off: 0, fill: "url(#petalInner)", d: .44 }
+    ];
+    layers.forEach((L) => {
+      for (let i = 0; i < L.n; i++) {
+        const a = L.off + i * 360 / L.n;
+        const rot = document.createElementNS(NS, "g");
+        rot.setAttribute("transform", `rotate(${a})`);
+        const p = document.createElementNS(NS, "path");
+        const { len: l, w } = L;
+        p.setAttribute("d", `M0 0C${-w} ${-l * .3} ${-w * .85} ${-l * .78} 0 ${-l}C${w * .85} ${-l * .78} ${w} ${-l * .3} 0 0Z`);
+        p.setAttribute("fill", L.fill);
+        p.setAttribute("stroke", "#F6D47E"); p.setAttribute("stroke-width", ".8");
+        p.setAttribute("class", "petal");
+        p.style.setProperty("--d", (L.d + i * .025).toFixed(3) + "s");
+        const vein = document.createElementNS(NS, "path");
+        vein.setAttribute("d", `M0 -6V${-l * .82}`);
+        vein.setAttribute("stroke", "#FFE9A8"); vein.setAttribute("stroke-width", ".6"); vein.setAttribute("opacity", ".7");
+        vein.setAttribute("class", "petal");
+        vein.style.setProperty("--d", (L.d + i * .025).toFixed(3) + "s");
+        rot.append(p, vein);
+        g.appendChild(rot);
+      }
+    });
+  })();
+
+  function petalBurst() {
+    const r = $("#seal").getBoundingClientRect();
+    const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+    const cols = ["#B3121F", "#D42A2A", "#E8B53A", "#F6D47E", "#FFF3C8", "#7E0812"];
+    for (let i = 0; i < 34; i++) {
+      const s = document.createElement("span");
+      s.className = "intro-petal";
+      s.style.left = cx + "px"; s.style.top = cy + "px";
+      s.style.background = cols[i % cols.length];
+      document.body.appendChild(s);
+      const a = Math.random() * Math.PI * 2, d = 90 + Math.random() * 170;
+      s.animate([
+        { transform: "translate(-50%,-50%) scale(.3) rotate(0deg)", opacity: 0 },
+        { transform: `translate(${Math.cos(a) * d * .5}px, ${Math.sin(a) * d * .5}px) scale(1) rotate(${Math.random() * 180}deg)`, opacity: 1, offset: .3 },
+        { transform: `translate(${Math.cos(a) * d}px, ${Math.sin(a) * d + 120}px) scale(.8) rotate(${Math.random() * 540}deg)`, opacity: 0 }
+      ], { duration: 1800 + Math.random() * 900, delay: 250 + Math.random() * 500, easing: "cubic-bezier(.2,.7,.35,1)", fill: "both" }).onfinish = () => s.remove();
+    }
+  }
+
   /* ---------- links ---------- */
   const q = encodeURIComponent(C.venueQuery);
   $("#mapBtn").href = `https://www.google.com/maps/search/?api=1&query=${q}`;
@@ -155,10 +206,11 @@
     if (reduceMotion) return finish(0);
     intro.classList.add("s1");
     sparkles();
-    setTimeout(() => intro.classList.add("s2"), 1700);
-    setTimeout(() => intro.classList.add("s3"), 2600);
-    setTimeout(() => intro.classList.add("s4"), 3400);
-    finish(4100);
+    petalBurst();
+    setTimeout(() => intro.classList.add("s2"), 2000);
+    setTimeout(() => intro.classList.add("s3"), 2900);
+    setTimeout(() => intro.classList.add("s4"), 3700);
+    finish(4400);
   }
   function finish(at) {
     setTimeout(() => {

@@ -126,9 +126,8 @@ a { color: inherit; }
 .seal-text {
   position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
   font-family: var(--script); font-size: clamp(30px, 9vw, 42px); line-height: 1;
-  color: var(--sun); text-shadow: 0 1px 0 rgba(0, 0, 0, .35);
   padding-top: 4%;
-  transition: color .8s, text-shadow .8s;
+  transition: filter .8s, transform .8s;
 }
 .seal-text i { font-style: normal; font-size: .62em; margin: 0 .04em; }
 
@@ -170,9 +169,9 @@ a { color: inherit; }
 /* opening sequence (classes added by script.js) */
 .intro.s1 .tap-wrap { opacity: 0; animation: none; }
 .intro.s1 .envelope::after { opacity: 1; }
-.intro.s1 .seal { transform: translate(-50%, -50%) scale(1.06); filter: drop-shadow(0 0 14px rgba(255, 205, 110, .95)) drop-shadow(0 0 30px rgba(255, 190, 80, .6)); }
+.intro.s1 .seal { transform: translate(-50%, -50%) scale(1.08); filter: drop-shadow(0 0 12px rgba(255, 200, 110, 1)) drop-shadow(0 0 30px rgba(214, 50, 40, .55)); }
 .intro.s1 .seal::before { box-shadow: 0 0 22px 8px rgba(255, 214, 130, .85), 0 0 60px 26px rgba(255, 196, 90, .45); }
-.intro.s1 .seal-text { color: #FFE3A3; text-shadow: 0 0 8px rgba(255, 220, 140, .95); }
+.intro.s1 .seal-text { transform: scale(1.1); filter: drop-shadow(0 0 4px rgba(255, 236, 170, 1)) drop-shadow(0 0 12px rgba(255, 196, 90, .95)); }
 .intro.s1 .seams path { stroke-dashoffset: 0; opacity: 1; transition-delay: .35s; }
 .intro.s2 .seal { transform: translate(-50%, -50%) scale(1.25); opacity: 0; }
 .intro.s2 .env-top { transform: rotateX(180deg); filter: brightness(1.08); }
@@ -569,3 +568,45 @@ a { color: inherit; }
 .hv-names span, .hv-names i { font-style: normal; background: linear-gradient(100deg, #7E5214 0%, #B8842F 25%, #EBC46A 45%, #B8842F 62%, #7E5214 100%); background-size: 220% auto; -webkit-background-clip: text; background-clip: text; color: transparent; animation: shimmer 5s linear infinite; }
 .hv-names i { font-size: .6em; }
 .hv-date { font-family: var(--caps); font-weight: 700; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--evergreen); margin-top: 10px; }
+
+/* ================= ENVELOPE: SINDOOR SEAL + LOTUS BLOOM ================= */
+.seal-text {
+  background: linear-gradient(160deg, #FFF3C8 0%, #F6D47E 35%, #D9A23E 65%, #A8741F 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 1px 1px rgba(40, 4, 4, .75)) drop-shadow(0 -1px 0 rgba(255, 240, 200, .35));
+}
+.seal::after { /* soft sheen across the wax */
+  content: ""; position: absolute; inset: 8%; border-radius: 50%; pointer-events: none;
+  background: linear-gradient(120deg, transparent 35%, rgba(255, 230, 200, .28) 48%, transparent 60%);
+  background-size: 260% 100%; animation: waxSheen 3.6s ease-in-out infinite;
+}
+@keyframes waxSheen { from { background-position: 130% 0; } to { background-position: -130% 0; } }
+.lotus {
+  position: absolute; left: 50%; top: 50%; width: 82%; aspect-ratio: 1; z-index: 7;
+  transform: translate(-50%, -50%); pointer-events: none; overflow: visible;
+  transition: transform 1.1s cubic-bezier(.4, 0, .2, 1), opacity 1.1s ease;
+}
+.lotus .petal { transform-box: fill-box; transform-origin: 50% 100%; transform: scale(.15, 0); opacity: 0; }
+.lotus .lotus-glow { opacity: 0; transform-box: fill-box; transform-origin: center; transform: scale(.3); transition: opacity 1s ease, transform 1.4s ease; }
+#lotusPetals { transform-box: view-box; transform-origin: 0 0; }
+.intro.s1 .lotus .petal { animation: bloom 1.15s cubic-bezier(.2, .85, .25, 1.12) var(--d) forwards; }
+.intro.s1 .lotus .lotus-glow { opacity: 1; transform: scale(1); }
+.intro.s1 #lotusPetals { animation: lotusTurn 9s linear forwards; }
+@keyframes bloom { 0% { transform: scale(.15, 0); opacity: 0; } 45% { opacity: 1; } 100% { transform: scale(1, 1); opacity: 1; } }
+@keyframes lotusTurn { to { transform: rotate(24deg); } }
+.intro.s2 .lotus { transform: translate(-50%, -62%) scale(1.5); opacity: 0; }
+.lotus-rays {
+  position: absolute; left: 50%; top: 50%; width: 170%; aspect-ratio: 1; z-index: 6; pointer-events: none;
+  transform: translate(-50%, -50%) scale(.3) rotate(0deg); opacity: 0;
+  background: repeating-conic-gradient(from 0deg, rgba(255, 214, 130, .55) 0deg 3deg, rgba(255, 214, 130, 0) 3deg 15deg);
+  -webkit-mask: radial-gradient(circle, #000 0 14%, transparent 58%); mask: radial-gradient(circle, #000 0 14%, transparent 58%);
+  transition: opacity .9s ease, transform 1.4s cubic-bezier(.2, .7, .2, 1);
+}
+.intro.s1 .lotus-rays { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(25deg); animation: raysSpin 12s linear infinite; }
+@keyframes raysSpin { from { rotate: 0deg; } to { rotate: 360deg; } }
+.intro.s2 .lotus-rays { opacity: 0; }
+.shock { position: absolute; left: 50%; top: 50%; width: 27%; aspect-ratio: 1; border-radius: 50%; z-index: 8; pointer-events: none; border: 3px solid #FFD98A; box-shadow: 0 0 18px rgba(255, 200, 100, .8), inset 0 0 12px rgba(214, 50, 40, .5); transform: translate(-50%, -50%); opacity: 0; }
+.intro.s1 .shock { animation: shock 1.3s cubic-bezier(.2, .6, .3, 1) .05s; }
+.intro.s1 .shock.s-2 { animation-delay: .45s; border-color: #E0453A; }
+@keyframes shock { 0% { opacity: 1; transform: translate(-50%, -50%) scale(1); } 100% { opacity: 0; transform: translate(-50%, -50%) scale(3.6); } }
+.intro-petal { position: fixed; width: 11px; height: 15px; border-radius: 150% 0 150% 0; pointer-events: none; z-index: 130; }

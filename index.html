@@ -107,13 +107,35 @@
         <path pathLength="1" d="M220 367L440 780"/>
       </g>
     </svg>
+    <div class="lotus-rays" aria-hidden="true"></div>
+    <svg class="lotus" id="lotus" viewBox="-100 -100 200 200" aria-hidden="true">
+      <defs>
+        <linearGradient id="petalOuter" x1="0" y1="1" x2="0" y2="0">
+          <stop offset="0" stop-color="#6E0610"/><stop offset=".5" stop-color="#B3121F"/>
+          <stop offset=".8" stop-color="#D9452F"/><stop offset=".93" stop-color="#EBA94A"/><stop offset="1" stop-color="#FFE3A0"/>
+        </linearGradient>
+        <linearGradient id="petalMid" x1="0" y1="1" x2="0" y2="0">
+          <stop offset="0" stop-color="#8E0B16"/><stop offset=".55" stop-color="#C8242B"/>
+          <stop offset=".85" stop-color="#F0B44C"/><stop offset="1" stop-color="#FFF3CF"/>
+        </linearGradient>
+        <linearGradient id="petalInner" x1="0" y1="1" x2="0" y2="0">
+          <stop offset="0" stop-color="#C8242B"/><stop offset=".5" stop-color="#F3C969"/><stop offset="1" stop-color="#FFF8E2"/>
+        </linearGradient>
+        <radialGradient id="lotusGlow">
+          <stop offset="0" stop-color="#FFF4D2" stop-opacity=".95"/><stop offset=".5" stop-color="#FFC66B" stop-opacity=".45"/><stop offset="1" stop-color="#FFC66B" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <circle r="100" fill="url(#lotusGlow)" class="lotus-glow"/>
+      <g id="lotusPetals"></g>
+    </svg>
+    <span class="shock"></span><span class="shock s-2"></span>
     <div class="seal" id="seal">
       <svg viewBox="0 0 100 100" aria-hidden="true">
         <defs>
           <radialGradient id="waxGrad" cx="36%" cy="30%" r="78%">
-            <stop offset="0" stop-color="#5C8172"/>
-            <stop offset=".55" stop-color="#2E4A3F"/>
-            <stop offset="1" stop-color="#1D3229"/>
+            <stop offset="0" stop-color="#E0453A"/>
+            <stop offset=".5" stop-color="#B3121F"/>
+            <stop offset="1" stop-color="#6B0610"/>
           </radialGradient>
         </defs>
         <path id="sealPath" fill="url(#waxGrad)"/>
