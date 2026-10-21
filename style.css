@@ -437,7 +437,7 @@ a { color: inherit; }
 .torana .leaf, .torana .flower { transform-box: fill-box; transform-origin: 50% 0; animation: leafSway 3.6s ease-in-out infinite alternate; }
 @keyframes leafSway { from { transform: rotate(-3deg); } to { transform: rotate(3deg); } }
 .h-blessing { font-size: 13px; letter-spacing: .02em; color: var(--kumkum); margin-bottom: 8px; }
-.ganesha { font-size: 16px; color: var(--kumkum); margin: -4px 0 14px; }
+.invite .ganesha { font-size: 16px; color: var(--kumkum); margin: -4px 0 14px; }
 .kalasam { display: block; width: 58px; height: 68px; margin: -30px auto 18px; filter: drop-shadow(0 4px 4px rgba(120, 80, 20, .2)); }
 .name-te { font-size: 22px; line-height: 1.2; color: var(--kumkum); margin-top: -8px; }
 .tl-te { font-family: var(--telugu); font-size: 17px; color: var(--kumkum); margin-top: 4px; }
@@ -706,7 +706,7 @@ a { color: inherit; }
 }
 .intro.s2 .ganesha-halo { transform: translate(-50%, -50%) scale(1); opacity: 1; animation: haloBreath 2.6s ease-in-out 1.6s infinite alternate; }
 @keyframes haloBreath { from { opacity: 1; } to { opacity: .7; } }
-.ganesha {
+.gn-medallion {
   position: absolute; left: 50%; top: 50%; width: 56%; aspect-ratio: 1; z-index: 9; pointer-events: none;
   border-radius: 50%;
   background: radial-gradient(circle at 40% 34%, #D23A33 0%, #A3101C 52%, #5E0610 100%);
@@ -714,8 +714,8 @@ a { color: inherit; }
   transform: translate(-50%, -50%) scale(.48); opacity: 0;
   transition: transform 1.3s cubic-bezier(.2, .85, .25, 1.05), opacity .8s ease;
 }
-.ganesha svg { position: absolute; left: 7%; top: 6%; width: 86%; height: 86%; overflow: visible; }
-.intro.s2 .ganesha { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+.gn-medallion svg { position: absolute; left: 7%; top: 6%; width: 86%; height: 86%; overflow: visible; }
+.intro.s2 .gn-medallion { transform: translate(-50%, -50%) scale(1); opacity: 1; }
 .g-line { stroke-dasharray: 1; stroke-dashoffset: 1; }
 .intro.s2 .g-line { animation: gDraw 1.7s cubic-bezier(.45, .1, .25, 1) calc(var(--gd) + .45s) forwards; }
 @keyframes gDraw { to { stroke-dashoffset: 0; } }
@@ -731,13 +731,13 @@ a { color: inherit; }
 .ganesha-mantra small { font-family: var(--tap); font-size: 10px; letter-spacing: .32em; text-transform: uppercase; color: #8E5E18; text-shadow: 0 0 6px rgba(255, 246, 225, 1); }
 .intro.s2 .ganesha-mantra { opacity: 1; transform: none; }
 /* blessing light: Ganesha and the lotus rise gently into warm light */
-.intro.s3 .ganesha { transform: translate(-50%, -56%) scale(1.12); opacity: 0; transition: transform 1.6s cubic-bezier(.3, 0, .2, 1), opacity 1.2s ease .25s; }
+.intro.s3 .gn-medallion { transform: translate(-50%, -56%) scale(1.12); opacity: 0; transition: transform 1.6s cubic-bezier(.3, 0, .2, 1), opacity 1.2s ease .25s; }
 .intro.s3 .ganesha-halo { transform: translate(-50%, -50%) scale(2.2); opacity: 0; animation: none; transition: transform 1.6s ease, opacity 1.4s ease .3s; }
 .intro.s3 .ganesha-mantra { opacity: 0; transform: translateY(-8px); transition: opacity .8s ease, transform .8s ease; }
 .flash { transition: opacity 1.3s ease; }
 
 /* intro smoothness: pre-promote the moving pieces, stop idle effects once tapped */
-.lotus, .lotus-rays, .ganesha, .ganesha-halo, .flash, .seal { will-change: transform, opacity; }
+.lotus, .lotus-rays, .gn-medallion, .ganesha-halo, .flash, .seal { will-change: transform, opacity; }
 .intro.s1 .seal::after { animation: none; opacity: 0; }
 .intro.s1 .tap-label, .intro.s1 .tap-chevron { animation: none; }
 .intro.s2 .shock { display: none; }
