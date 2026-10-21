@@ -676,10 +676,42 @@
   }, { rootMargin: "400px" });
   mapIo.observe($("#map"));
 
-  /* ---------- countdown ---------- */
+  /* ---------- countdown: royal split-flap clock ---------- */
   const cd = $("#countdown");
-  const u = { d: $('[data-u="d"]', cd), h: $('[data-u="h"]', cd), m: $('[data-u="m"]', cd), s: $('[data-u="s"]', cd) };
-  const pad = (n) => String(n).padStart(2, "0");
+  const units = { d: $('[data-u="d"]', cd), h: $('[data-u="h"]', cd), m: $('[data-u="m"]', cd), s: $('[data-u="s"]', cd) };
+  const secCell = units.s.closest(".cd");
+  const FLIP = reduceMotion ? 0 : 320;
+  function makeDigit() {
+    const d = document.createElement("span");
+    d.className = "fd";
+    d.innerHTML = '<span class="fd-half fd-up"><span>0</span></span><span class="fd-half fd-low"><span>0</span></span>' +
+      '<span class="fd-half fd-up fd-flap-top"><span>0</span></span><span class="fd-half fd-low fd-flap-bottom"><span>0</span></span>';
+    d.dataset.v = "0";
+    return d;
+  }
+  function setDigit(el, v, fast) {
+    const cur = el.dataset.v;
+    if (cur === v) return;
+    const [up, low, ft, fb] = el.children;
+    up.firstChild.textContent = v; fb.firstChild.textContent = v;
+    ft.firstChild.textContent = cur; low.firstChild.textContent = cur;
+    el.dataset.v = v;
+    const dur = fast ? 70 : FLIP;
+    el.style.setProperty("--ft", dur + "ms");
+    el.classList.remove("flip"); void el.offsetWidth; el.classList.add("flip");
+    clearTimeout(el._t);
+    el._t = setTimeout(() => { low.firstChild.textContent = v; ft.firstChild.textContent = v; el.classList.remove("flip"); }, dur * 2 + 40);
+  }
+  function setUnit(key, num, fast) {
+    const host = units[key];
+    const str = String(num).padStart(2, "0");
+    while (host.children.length < str.length) host.appendChild(makeDigit());
+    while (host.children.length > str.length) host.lastChild.remove();
+    [...str].forEach((ch, i) => setDigit(host.children[i], ch, fast));
+  }
+  Object.values(units).forEach((b) => { b.textContent = ""; b.append(makeDigit(), makeDigit()); });
+
+  let rolling = false;
   function tick() {
     const diff = (eventDate - Date.now()) / 1000;
     if (diff <= 0) {
@@ -687,11 +719,30 @@
       cd.textContent = Date.now() - eventDate < 2 * 86400e3 ? "Today we say “I do”" : "Happily ever after";
       return clearInterval(timer);
     }
-    u.d.textContent = pad(Math.floor(diff / 86400));
-    u.h.textContent = pad(Math.floor(diff % 86400 / 3600));
-    u.m.textContent = pad(Math.floor(diff % 3600 / 60));
-    u.s.textContent = pad(Math.floor(diff % 60));
+    if (rolling) return;
+    setUnit("d", Math.floor(diff / 86400));
+    setUnit("h", Math.floor(diff % 86400 / 3600));
+    setUnit("m", Math.floor(diff % 3600 / 60));
+    setUnit("s", Math.floor(diff % 60));
+    secCell.classList.remove("beat"); void secCell.offsetWidth; secCell.classList.add("beat");
   }
   const timer = setInterval(tick, 1000);
   tick();
+
+  // slot-machine spin the first time the clock scrolls into view
+  if (!reduceMotion) {
+    const rollIo = new IntersectionObserver((entries) => {
+      if (!entries[0].isIntersecting) return;
+      rollIo.disconnect();
+      rolling = true;
+      const spin = setInterval(() => {
+        Object.keys(units).forEach((k) => {
+          const n = units[k].children.length;
+          setUnit(k, Array.from({ length: n }, () => Math.floor(Math.random() * 10)).join(""), true);
+        });
+      }, 160);
+      setTimeout(() => { clearInterval(spin); rolling = false; tick(); cd.classList.add("landed"); }, 1700);
+    }, { threshold: .5 });
+    rollIo.observe(cd);
+  }
 })();
