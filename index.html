@@ -8,13 +8,14 @@
   <meta property="og:title" content="Prithvi & Jyosthna | December 19–20, 2026">
   <meta property="og:description" content="Tap to open your invitation.">
   <meta property="og:type" content="website">
+  <!-- Link-preview card: assets/og/card-kumkum.jpg (design A) or assets/og/card-turmeric.jpg (design B) -->
   <meta property="og:url" content="https://prithvi-jyosthna-wedding-invite.vercel.app/">
-  <meta property="og:image" content="https://prithvi-jyosthna-wedding-invite.vercel.app/assets/texas.jpg">
-  <meta property="og:image:width" content="1100">
-  <meta property="og:image:height" content="734">
-  <meta property="og:image:alt" content="Prithvi and Jyosthna at a Texas lake at sunset">
+  <meta property="og:image" content="https://prithvi-jyosthna-wedding-invite.vercel.app/assets/og/card-kumkum.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Srinivasa Kalyanam invitation card for Prithvi and Jyosthna">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://prithvi-jyosthna-wedding-invite.vercel.app/assets/texas.jpg">
+  <meta name="twitter:image" content="https://prithvi-jyosthna-wedding-invite.vercel.app/assets/og/card-kumkum.jpg">
   <link rel="canonical" href="https://prithvi-jyosthna-wedding-invite.vercel.app/">
   <meta name="theme-color" content="#F6EEE1">
   <link rel="icon" href="favicon.ico" sizes="32x32">
@@ -24,7 +25,8 @@
   <link rel="manifest" href="site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Imperial+Script&family=Ovo&family=Rufina:wght@400;700&family=Cinzel:wght@400;500&family=Ramaraja&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Imperial+Script&family=Ovo&family=Rufina:wght@400;700&family=Cinzel:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preload" href="assets/fonts/potti-sreeramulu.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="locked">
@@ -32,16 +34,75 @@
 <!-- Shared drawings -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
+    <linearGradient id="mangoG" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#7DAA52"/><stop offset=".55" stop-color="#4F7A34"/><stop offset="1" stop-color="#2F5A22"/></linearGradient>
+    <linearGradient id="budG" x1="0" x2="0" y1="1" y2="0"><stop offset="0" stop-color="#B8283E"/><stop offset=".55" stop-color="#E26B7E"/><stop offset="1" stop-color="#FBD3D8"/></linearGradient>
+    <!-- lotus bud (was the Texas bluebonnet) -->
     <symbol id="bluebonnet" viewBox="0 0 60 150">
-      <path d="M30 150C29 122 31 104 30 72" stroke="#5E7B4C" stroke-width="2" fill="none"/>
-      <path d="M30 132C18 128 9 119 5 108C16 110 26 119 30 132Z" fill="#6F8F5A"/>
-      <path d="M30 124C42 120 51 112 55 101C44 103 34 112 30 124Z" fill="#7C9B66"/>
-      <path d="M30 140C22 140 14 136 10 130C18 129 26 133 30 140Z" fill="#5E7B4C"/>
-      <g id="bbFlorets"></g>
+      <path d="M30 150C29 122 31 102 30 76" stroke="#5E7B3A" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+      <path d="M30 130C17 127 8 118 4 106C16 107 26 117 30 130Z" fill="url(#mangoG)"/>
+      <path d="M30 116C43 112 52 104 56 92C44 94 34 103 30 116Z" fill="url(#mangoG)"/>
+      <path d="M30 78C17 70 12 50 20 30C25 45 29 60 30 78Z" fill="url(#budG)"/>
+      <path d="M30 78C43 70 48 50 40 30C35 45 31 60 30 78Z" fill="url(#budG)"/>
+      <path d="M30 80C21 62 21 38 30 16C39 38 39 62 30 80Z" fill="url(#budG)" stroke="#F7C2C9" stroke-width=".6"/>
+      <path d="M30 22V74" stroke="#FFFFFF" stroke-opacity=".35" stroke-width=".8"/>
+      <path d="M22 80C26 74 34 74 38 80C34 84 26 84 22 80Z" fill="#5E7B3A"/>
     </symbol>
+    <!-- mango-leaf bunch (was the Washington evergreen sprig) -->
     <symbol id="sprig" viewBox="0 0 80 170">
-      <path id="sprigPath" fill="none" stroke="#3E6150" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M40 168C38 132 42 96 40 52" stroke="#5E7B3A" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <g fill="url(#mangoG)">
+        <path transform="translate(40 150) rotate(-152)" d="M0 0C9 -7 25 -9 40 -2C25 5 9 6 0 0Z"/>
+        <path transform="translate(40 138) rotate(-28)" d="M0 0C9 -7 25 -9 40 -2C25 5 9 6 0 0Z"/>
+        <path transform="translate(40 118) rotate(-158)" d="M0 0C9 -7 25 -9 40 -2C25 5 9 6 0 0Z"/>
+        <path transform="translate(40 102) rotate(-22)" d="M0 0C9 -7 25 -9 40 -2C25 5 9 6 0 0Z"/>
+        <path transform="translate(40 84) rotate(-148)" d="M0 0C9 -7 25 -9 40 -2C25 5 9 6 0 0Z"/>
+        <path transform="translate(40 68) rotate(-34)" d="M0 0C9 -7 25 -9 40 -2C25 5 9 6 0 0Z"/>
+        <path transform="translate(40 54) rotate(-98) scale(.88)" d="M0 0C9 -7 25 -9 40 -2C25 5 9 6 0 0Z"/>
+      </g>
+      <g stroke="#C9DE9C" stroke-width=".7" stroke-opacity=".8">
+        <path transform="translate(40 150) rotate(-152)" d="M3 0H35"/>
+        <path transform="translate(40 138) rotate(-28)" d="M3 0H35"/>
+        <path transform="translate(40 118) rotate(-158)" d="M3 0H35"/>
+        <path transform="translate(40 102) rotate(-22)" d="M3 0H35"/>
+        <path transform="translate(40 84) rotate(-148)" d="M3 0H35"/>
+        <path transform="translate(40 68) rotate(-34)" d="M3 0H35"/>
+        <path transform="translate(40 54) rotate(-98) scale(.88)" d="M3 0H35"/>
+      </g>
+      <circle cx="40" cy="50" r="5" fill="#E8892B"/><circle cx="40" cy="50" r="2.4" fill="#F7C35A"/>
     </symbol>
+    <!-- Srinivasa Kalyanam crest: Shankha · Thiru Namam · Chakra -->
+    <symbol id="skCrest" viewBox="0 0 160 56">
+      <g stroke="#B0802B" stroke-width="1.2" stroke-linejoin="round">
+        <path d="M40 6C48 8 52 16 50 24C49 30 46 36 42 44C40 48 36 48 34 44C30 36 28 28 30 20C31 12 34 6 40 6Z" fill="#FFF8EA"/>
+        <path d="M33 18C38 16 45 17 49 21M31 26C37 24 44 25 49 28M32 34C37 33 42 33 46 35" fill="none"/>
+        <circle cx="40" cy="11" r="2.4" fill="#F3CF73"/>
+      </g>
+      <path d="M71 6V30C71 43 89 43 89 30V6" fill="none" stroke="#B0802B" stroke-width="6.4" stroke-linecap="round"/>
+      <path d="M71 6V30C71 43 89 43 89 30V6" fill="none" stroke="#FFFDF7" stroke-width="4" stroke-linecap="round"/>
+      <path d="M80 8V38" stroke="#C8242B" stroke-width="3.2" stroke-linecap="round"/>
+      <path d="M72 48H88" stroke="#D7A23E" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="80" cy="48" r="2.2" fill="#C8242B"/>
+      <g transform="translate(120 27)">
+        <g fill="#F3B74A">
+          <path d="M0 -21L3 -15H-3Z"/><path d="M0 21L3 15H-3Z"/><path d="M-21 0L-15 3V-3Z"/><path d="M21 0L15 3V-3Z"/>
+          <path d="M14.8 -14.8L10.6 -8.4L8.4 -10.6Z"/><path d="M-14.8 14.8L-10.6 8.4L-8.4 10.6Z"/><path d="M14.8 14.8L8.4 10.6L10.6 8.4Z"/><path d="M-14.8 -14.8L-8.4 -10.6L-10.6 -8.4Z"/>
+        </g>
+        <circle r="14" fill="#FBE8B8" stroke="#B0802B" stroke-width="1.6"/>
+        <circle r="9.5" fill="none" stroke="#B0802B" stroke-width="1"/>
+        <path d="M0 -14V14M-14 0H14M-9.9 -9.9L9.9 9.9M9.9 -9.9L-9.9 9.9" stroke="#B0802B" stroke-width="1"/>
+        <circle r="3.4" fill="#C8242B" stroke="#B0802B" stroke-width=".8"/>
+      </g>
+    </symbol>
+    <!-- ritual icons (gold, 48x48) -->
+    <symbol id="ri-snathakam" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 6C18 18 26 30 38 42M15 5C21 17 29 29 41 40M9 8C15 20 23 32 35 44"/><circle cx="12" cy="26" r="4"/><path d="M16 26H24"/></g></symbol>
+    <symbol id="ri-kashi" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20C8 10 16 5 24 5C32 5 40 10 42 20C38 18 34 18 30 20C28 18 26 18 24 20C22 18 20 18 18 20C14 18 10 18 6 20Z"/><path d="M24 20V38C24 42 20 42 19 39"/><path d="M38 24L32 46"/></g></symbol>
+    <symbol id="ri-edurukolu" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M8 24H18L17 28C22 30 22 40 13 42C4 40 4 30 9 28Z"/><path d="M30 24H40L39 28C44 30 44 40 35 42C26 40 26 30 31 28Z"/><path d="M10 24C10 18 16 18 16 24M32 24C32 18 38 18 38 24"/><path d="M18 10C22 6 26 6 30 10M20 14C23 11 25 11 28 14"/></g></symbol>
+    <symbol id="ri-kanyadanam" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 8H26L25 12C31 14 32 24 24 28C16 30 10 24 13 16Z" transform="rotate(-25 20 18)"/><path d="M28 26V30M30 32V36M28 38V41"/><path d="M14 44C18 40 24 40 28 42C32 40 38 40 42 44"/></g></symbol>
+    <symbol id="ri-jeelakarra" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M24 42C12 34 6 24 8 14C10 6 20 4 24 12C28 4 38 6 40 14C42 24 36 34 24 42Z"/><path d="M24 14V40"/></g><circle cx="24" cy="22" r="4" fill="currentColor"/></symbol>
+    <symbol id="ri-mangalyam" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 8C8 26 16 34 24 34C32 34 40 26 42 8"/></g><circle cx="19" cy="38" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="29" cy="38" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="19" cy="38" r="1.6" fill="currentColor"/><circle cx="29" cy="38" r="1.6" fill="currentColor"/></symbol>
+    <symbol id="ri-talambralu" viewBox="0 0 48 48"><g fill="currentColor"><ellipse cx="12" cy="20" rx="1.6" ry="3.4" transform="rotate(-30 12 20)"/><ellipse cx="20" cy="12" rx="1.6" ry="3.4" transform="rotate(20 20 12)"/><ellipse cx="30" cy="16" rx="1.6" ry="3.4" transform="rotate(-50 30 16)"/><ellipse cx="38" cy="24" rx="1.6" ry="3.4" transform="rotate(30 38 24)"/><ellipse cx="16" cy="30" rx="1.6" ry="3.4" transform="rotate(60 16 30)"/><ellipse cx="34" cy="34" rx="1.6" ry="3.4" transform="rotate(-20 34 34)"/></g><g fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="24" cy="24" r="2.6"/><circle cx="26" cy="38" r="2.2"/><circle cx="8" cy="34" r="2"/><circle cx="40" cy="12" r="2"/></g></symbol>
+    <symbol id="ri-saptapadi" viewBox="0 0 48 48"><g fill="currentColor"><circle cx="8" cy="36" r="2.4"/><circle cx="12" cy="26" r="2.4"/><circle cx="18" cy="18" r="2.4"/><circle cx="26" cy="13" r="2.4"/><circle cx="34" cy="14" r="2.4"/><circle cx="40" cy="20" r="2.4"/><circle cx="42" cy="29" r="2.4"/></g><path d="M24 40C20 36 21 31 24 27C27 31 28 36 24 40Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M18 42H30" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="ri-arundhati" viewBox="0 0 48 48"><path d="M22 6L25 16L35 16L27 22L30 32L22 26L14 32L17 22L9 16L19 16Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M38 30L39.4 34.4L44 34.4L40.3 37.1L41.7 41.5L38 38.8L34.3 41.5L35.7 37.1L32 34.4L36.6 34.4Z" fill="currentColor"/><path d="M6 40C14 44 26 44 32 40" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="2 3"/></symbol>
     <symbol id="sunmark" viewBox="0 0 40 40">
       <g stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
         <path d="M20 2v6M20 32v6M2 20h6M32 20h6M7.3 7.3l4.2 4.2M28.5 28.5l4.2 4.2M7.3 32.7l4.2-4.2M28.5 11.5l4.2-4.2"/>
@@ -131,36 +192,66 @@
     <span class="shock"></span><span class="shock s-2"></span>
     <div class="ganesha-halo" aria-hidden="true"></div>
     <div class="gn-medallion" aria-hidden="true">
-      <svg viewBox="0 0 200 200">
-        <g fill="none" stroke="#F6D47E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <svg viewBox="0 0 200 220">
+        <defs>
+          <linearGradient id="gGold" x1="0" y1="0" x2=".6" y2="1"><stop offset="0" stop-color="#FFF0B8"/><stop offset=".35" stop-color="#F2C86A"/><stop offset=".72" stop-color="#C9922F"/><stop offset="1" stop-color="#8E5E18"/></linearGradient>
+          <linearGradient id="gEar" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F6D27C"/><stop offset=".6" stop-color="#C38A33"/><stop offset="1" stop-color="#8E5E18"/></linearGradient>
+          <radialGradient id="gBelly" cx="45%" cy="38%" r="70%"><stop offset="0" stop-color="#FFF3C8"/><stop offset=".6" stop-color="#EBC066"/><stop offset="1" stop-color="#B98428"/></radialGradient>
+          <linearGradient id="gTrunk" x1="0" x2="1"><stop offset="0" stop-color="#B98428"/><stop offset=".45" stop-color="#FCE3A0"/><stop offset="1" stop-color="#B98428"/></linearGradient>
+        </defs>
+        <g stroke="#FFE7A6" stroke-width="1.1" stroke-linejoin="round" stroke-linecap="round">
+          <!-- ears -->
+          <path class="gs" style="--gd:0s" pathLength="1" fill="url(#gEar)" d="M74 70C52 58 30 66 28 90C26 114 44 132 66 126C74 124 78 116 78 108C72 98 70 82 74 70Z"/>
+          <path class="gs" style="--gd:0s" pathLength="1" fill="url(#gEar)" d="M126 70C148 58 170 66 172 90C174 114 156 132 134 126C126 124 122 116 122 108C128 98 130 82 126 70Z"/>
+          <!-- body, belly and arms -->
+          <path class="gs" style="--gd:.15s" pathLength="1" fill="url(#gGold)" d="M58 136C70 124 86 120 100 120C114 120 130 124 142 136C156 150 158 172 152 188C146 204 126 212 100 212C74 212 54 204 48 188C42 172 44 150 58 136Z"/>
+          <ellipse class="gs" style="--gd:.25s" pathLength="1" fill="url(#gBelly)" cx="100" cy="182" rx="34" ry="27"/>
+          <path class="gs" style="--gd:.3s" pathLength="1" fill="url(#gGold)" d="M60 140C50 148 46 160 48 174C50 180 58 180 60 172C60 162 62 154 66 148Z"/>
+          <path class="gs" style="--gd:.35s" pathLength="1" fill="url(#gGold)" d="M46 176C40 168 38 156 40 146L50 146C50 156 52 166 56 174Z"/>
+          <path class="gs" style="--gd:.4s" pathLength="1" fill="url(#gGold)" d="M36 146C35 136 38 128 45 128C52 128 55 136 54 146Z"/>
+          <path class="gs" style="--gd:.3s" pathLength="1" fill="url(#gGold)" d="M140 140C150 148 154 160 152 174C150 180 142 180 140 172C140 162 138 154 134 148Z"/>
+          <path class="gs" style="--gd:.4s" pathLength="1" fill="#B98428" d="M146 164H172C171 172 166 176 159 176C152 176 147 172 146 164Z"/>
+          <path class="gs" style="--gd:.45s" pathLength="1" fill="#FFF0C8" d="M150 164C150 158 155 154 155 154C155 154 160 158 160 164ZM158 164C158 158 163 154 163 154C163 154 168 158 168 164Z"/>
+          <!-- waist cloth -->
+          <path class="gs" style="--gd:.45s" pathLength="1" fill="#C8242B" d="M52 198C70 206 130 206 148 198L150 212C130 218 70 218 50 212Z"/>
+          <!-- head -->
+          <path class="gs" style="--gd:.5s" pathLength="1" fill="url(#gGold)" d="M74 62C66 74 66 94 74 104C80 112 86 116 90 120H110C114 116 120 112 126 104C134 94 134 74 126 62Z"/>
           <!-- crown (kireetam) -->
-          <path class="g-line" style="--gd:0s" pathLength="1" d="M70 62H130M72 62L80 42H120L128 62"/>
-          <path class="g-line" style="--gd:.15s" pathLength="1" d="M84 42L90 27H110L116 42M93 27Q100 10 107 27"/>
-          <circle class="g-line" style="--gd:.3s" pathLength="1" cx="100" cy="12" r="3"/>
-          <!-- head and ears -->
-          <path class="g-line" style="--gd:.35s" pathLength="1" d="M73 64C64 74 63 92 72 104C78 112 84 116 87 124M127 64C136 74 137 92 128 104C122 112 116 116 113 124"/>
-          <path class="g-line" style="--gd:.5s" pathLength="1" d="M72 68C50 56 30 70 33 94C36 116 52 128 70 120M128 68C150 56 170 70 167 94C164 116 148 128 130 120"/>
-          <path class="g-line" style="--gd:.65s" pathLength="1" d="M68 78C54 72 44 84 46 96C48 108 58 114 66 110M132 78C146 72 156 84 154 96C152 108 142 114 134 110"/>
-          <!-- brows and eyes -->
-          <path class="g-line" style="--gd:.8s" pathLength="1" d="M78 79Q86 75 94 78M106 78Q114 75 122 79"/>
-          <path class="g-line" style="--gd:.9s" pathLength="1" d="M79 86Q86 80 93 86Q86 90 79 86ZM107 86Q114 80 121 86Q114 90 107 86Z"/>
-          <!-- shoulders and garland -->
-          <path class="g-line" style="--gd:1.2s" pathLength="1" d="M44 150C52 136 62 132 70 132M156 150C148 136 138 132 130 132"/>
-          <path class="g-line" style="--gd:1.3s" pathLength="1" d="M62 140Q100 192 138 140"/>
+          <path class="gs" style="--gd:.65s" pathLength="1" fill="url(#gGold)" d="M72 60C62 56 58 46 60 38C64 46 68 50 74 54ZM128 60C138 56 142 46 140 38C136 46 132 50 126 54Z"/>
+          <path class="gs" style="--gd:.7s" pathLength="1" fill="url(#gGold)" d="M78 56L85 40H115L122 56Z"/>
+          <path class="gs" style="--gd:.8s" pathLength="1" fill="url(#gGold)" d="M88 40L93 26H107L112 40Z"/>
+          <path class="gs" style="--gd:.9s" pathLength="1" fill="#F6D47E" d="M100 8C105 15 105 22 100 26C95 22 95 15 100 8Z"/>
+          <rect class="gs" style="--gd:.75s" pathLength="1" fill="url(#gGold)" x="72" y="55" width="56" height="9" rx="2"/>
+          <!-- tusks -->
+          <path class="gs" style="--gd:1s" pathLength="1" fill="#FFF6DE" d="M112 116C121 120 127 128 125 137C120 131 115 126 109 123Z"/>
+          <path class="gs" style="--gd:1s" pathLength="1" fill="#FFF6DE" d="M88 116L82 121L86 124Z"/>
         </g>
-        <!-- trunk (gold-edged tube) -->
-        <path class="g-line" style="--gd:1s" pathLength="1" d="M100 96C101 118 98 140 104 156C110 172 128 174 132 162C135 152 124 146 118 153" fill="none" stroke="#F6D47E" stroke-width="15" stroke-linecap="round"/>
-        <path class="g-line" style="--gd:1.05s" pathLength="1" d="M100 96C101 118 98 140 104 156C110 172 128 174 132 162C135 152 124 146 118 153" fill="none" stroke="#8E0B16" stroke-width="10.5" stroke-linecap="round"/>
-        <g class="g-fill">
-          <path d="M95 112h10M94 124h11M95 136h10M97 147h10" stroke="#F6D47E" stroke-width="1.4" stroke-linecap="round"/>
-          <circle cx="86" cy="85.5" r="1.8" fill="#F6D47E"/><circle cx="114" cy="85.5" r="1.8" fill="#F6D47E"/>
-          <path d="M100 63C103.6 70 103.6 76 100 81C96.4 76 96.4 70 100 63Z" fill="#FF5A45" stroke="#F6D47E" stroke-width=".8"/>
-          <path d="M112 122C120 126 125 134 123 142C119 136 114 131 110 128Z" fill="#FFF4D6" stroke="#F6D47E" stroke-width="1"/>
-          <path d="M88 122L83 126L86 129Z" fill="#FFF4D6" stroke="#F6D47E" stroke-width="1"/>
-          <g fill="#F6D47E"><circle cx="70" cy="152" r="2.3"/><circle cx="80" cy="162" r="2.3"/><circle cx="91" cy="168" r="2.3"/><circle cx="120" cy="162" r="2.3"/><circle cx="130" cy="152" r="2.3"/></g>
-          <circle cx="96" cy="177" r="4.2" fill="#E0453A" stroke="#F6D47E" stroke-width="1.2"/>
-          <g fill="#F6D47E"><circle cx="86" cy="52" r="1.8"/><circle cx="114" cy="52" r="1.8"/></g>
-          <circle cx="100" cy="52" r="3.2" fill="#E0453A" stroke="#F6D47E" stroke-width="1"/>
+        <!-- trunk: outline, gold tube, jewelled bands, modak in the curl -->
+        <path class="gl" style="--gd:.95s" pathLength="1" d="M100 98C100 120 97 140 103 156C109 172 128 175 133 163C137 153 127 147 121 153" fill="none" stroke="#7E5214" stroke-width="17" stroke-linecap="round"/>
+        <path class="gl" style="--gd:1s" pathLength="1" d="M100 98C100 120 97 140 103 156C109 172 128 175 133 163C137 153 127 147 121 153" fill="none" stroke="url(#gTrunk)" stroke-width="14" stroke-linecap="round"/>
+        <g class="gd">
+          <path d="M93 110H107M92 122H106M94 134H106" stroke="#C8242B" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M121 151C121 145 127 141 127 141C127 141 133 145 133 151C133 154 121 154 121 151Z" fill="#FFF0C8" stroke="#B98428" stroke-width=".8"/>
+          <!-- eyes, brows, tilak -->
+          <path d="M80 86Q87 80 94 86Q87 91 80 86ZM106 86Q113 80 120 86Q113 91 106 86Z" fill="#FFF6DA" stroke="#5E0610" stroke-width=".9"/>
+          <circle cx="87" cy="86" r="2.2" fill="#3A0606"/><circle cx="113" cy="86" r="2.2" fill="#3A0606"/>
+          <path d="M79 79Q87 74 95 78M105 78Q113 74 121 79" fill="none" stroke="#5E0610" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M100 64C103.4 70 103.4 76 100 81C96.6 76 96.6 70 100 64Z" fill="#E0251C" stroke="#FFE7A6" stroke-width=".6"/>
+          <!-- crown jewels -->
+          <circle cx="100" cy="48" r="3.4" fill="#C8242B" stroke="#FFE7A6" stroke-width=".8"/>
+          <circle cx="100" cy="33" r="2.4" fill="#C8242B"/>
+          <g fill="#C8242B"><circle cx="82" cy="59.5" r="1.5"/><circle cx="91" cy="59.5" r="1.5"/><circle cx="109" cy="59.5" r="1.5"/><circle cx="118" cy="59.5" r="1.5"/></g>
+          <!-- ear jewels -->
+          <g fill="#C8242B"><circle cx="50" cy="96" r="2"/><circle cx="46" cy="104" r="1.6"/><circle cx="54" cy="104" r="1.6"/><circle cx="150" cy="96" r="2"/><circle cx="146" cy="104" r="1.6"/><circle cx="154" cy="104" r="1.6"/></g>
+          <path d="M66 80C50 76 40 86 40 98C40 110 50 118 62 116M134 80C150 76 160 86 160 98C160 110 150 118 138 116" fill="none" stroke="#8E5E18" stroke-width="1" stroke-opacity=".6"/>
+          <!-- yagnopavitam (sacred thread), necklace, navel, abhaya fingers -->
+          <path d="M66 140C86 160 112 186 132 206" fill="none" stroke="#FFF6DA" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M70 134Q100 168 130 134" fill="none" stroke="#C8242B" stroke-width="2.2"/>
+          <circle cx="100" cy="151" r="5" fill="#C8242B" stroke="#FFE7A6" stroke-width="1.2"/>
+          <circle cx="100" cy="188" r="2" fill="#8E5E18"/>
+          <path d="M40 136V129M44 135V127M48 135V128M52 137V131" stroke="#8E5E18" stroke-width=".9" stroke-linecap="round"/>
+          <path d="M40 147H50M150 177H160" stroke="#C8242B" stroke-width="2"/>
+          <path d="M60 205H140" stroke="#F3CF73" stroke-width="1.6"/>
         </g>
       </svg>
     </div>
@@ -413,9 +504,9 @@
         <!-- TEXT above the roof -->
         <div class="layer l-text">
           <div class="hero-text">
-            <p class="h-blessing te">శ్రీరస్తు • శుభమస్తు • అవిఘ్నమస్తు</p>
-            <p class="h-welcome">Welcome to the</p>
-            <p class="h-ceremony">Wedding Ceremony of</p>
+            <svg class="sk-crest" aria-hidden="true"><use href="#skCrest"/></svg>
+            <p class="h-sk te">శ్రీనివాస కళ్యాణం</p>
+            <p class="h-sk-en">Srinivasa Kalyanam</p>
           </div>
         </div>
 
@@ -515,7 +606,7 @@
   </section>
 
   <!-- THE DATES: two scratch cards, one per day -->
-  <section class="sec date" id="date">
+  <section class="sec date r3d" id="date">
     <h2 class="t-script" data-lift>The Dates</h2>
     <p class="hint" data-lift>✦ Scratch to reveal the dates ✦</p>
     <div class="scratch-row two">
@@ -546,68 +637,85 @@
     </div>
     <p class="save-date" id="saveDate">Save the Dates</p>
     <p class="weekday" id="dWeekday">Serengeti Estates · Melissa, Texas</p>
-    <p class="body-17 date-note" data-lift>A little rain. A little sunshine.<br>Something good brewing.</p>
+    <p class="te date-te" data-lift>పెద్దల ఆశీస్సులతో</p>
+    <p class="body-17 date-note" data-lift>With the blessings of our elders,<br>two families become one.</p>
   </section>
 
-  <!-- STORY -->
-  <section class="sec story">
-    <p class="kicker" data-lift>Two different forecasts.<br>Something wonderful on the horizon.</p>
-
-    <div class="chapter">
-      <p class="state" data-fade>Washington</p>
-      <svg class="sway sw-a deco deco-l" aria-hidden="true"><use href="#sprig"/></svg>
-      <figure class="photo" data-fadeup>
-        <img src="assets/washington.jpg" alt="Jyosthna and Prithvi on a snowy Washington mountain" loading="lazy" decoding="async" width="1100" height="826">
-      </figure>
-      <p class="tagline" data-lift>Evergreen Escapes.<br>Sun-Kissed Peaks.<br>The Rhythm of Rain.</p>
-      <p class="body-21" data-lift>Where mountains touch the clouds, evergreens stretch for miles, and there’s always room for a good cup of coffee.</p>
-      <p class="body-21 soft" data-lift>And there was Jyosthna, with rain at her window and mountains on the horizon, unaware that a wonderful surprise was on its way.</p>
-    </div>
-
-    <div class="meanwhile" data-lift>
-      <p class="t-script small">Meanwhile,</p>
-      <p class="body-21">a few states away…</p>
-      <p class="body-17">The forecast looked a little different.</p>
-    </div>
-
-    <div class="chapter">
-      <p class="state sun" data-fade>Texas</p>
-      <svg class="sway sw-b deco deco-r" aria-hidden="true"><use href="#bluebonnet"/></svg>
-      <figure class="photo" data-fadeup>
-        <img src="assets/texas.jpg" alt="Prithvi and Jyosthna at a Texas lake at sunset" loading="lazy" decoding="async" width="1100" height="734">
-      </figure>
-      <p class="tagline" data-lift>Golden Sunsets.<br>Wide-Open Skies.<br>A Little Southern Charm.</p>
-      <p class="body-21" data-lift>Where the skies stretch endlessly, sunsets paint the horizon, and there’s always time for a comforting cup of chai.</p>
-      <p class="body-21 soft" data-lift>And beneath those golden skies was Prithvi, unaware that life had a little magic up its sleeve.</p>
-    </div>
-
-    <div class="blend" data-lift>
-      <p class="body-21">Different skies.<br>Different horizons.</p>
-      <p class="body-21">And then, their forecasts began to blend.</p>
-      <p class="met"><span class="wa">Washington</span><span class="met-word">met</span><span class="tx">Texas.</span></p>
-      <ul class="pairs">
-        <li>Just like <em>rain</em> meets <em class="s">sunshine</em>.</li>
-        <li>And <em>coffee</em> meets <em class="s">chai</em>.</li>
-        <li>A pairing with a little extra charm.</li>
-        <li>Like peanut butter &amp; jelly.</li>
-      </ul>
-      <p class="body-17">And our own little version…</p>
-      <svg class="divider" aria-hidden="true"><use href="#divider"/></svg>
-      <p class="pj-names">Prithvi &amp; Jyosthna</p>
-      <p class="body-17">Turns out, some things are simply better together.</p>
+  <!-- SACRED RITUALS -->
+  <section class="sec rituals r3d" id="rituals">
+    <p class="te r-head-te" data-lift>పెళ్లి వేడుకలు</p>
+    <h2 class="t-script" data-lift>The Sacred Rituals</h2>
+    <svg class="muggu" aria-hidden="true"><use href="#muggu"/></svg>
+    <p class="body-17 r-intro" data-lift>A Telugu Brahmin wedding unfolds as a series of Vedic rituals, each one a blessing for the couple’s life together.</p>
+    <div class="ritual-grid">
+      <article class="ritual">
+        <div class="r-icon"><svg aria-hidden="true"><use href="#ri-snathakam"/></svg></div>
+        <p class="r-te te">స్నాతకం</p>
+        <p class="r-en">Snathakam</p>
+        <p class="r-desc">The groom completes his student life, takes the sacred thread and is blessed to enter married life.</p>
+      </article>
+      <article class="ritual">
+        <div class="r-icon"><svg aria-hidden="true"><use href="#ri-kashi"/></svg></div>
+        <p class="r-te te">కాశీ యాత్ర</p>
+        <p class="r-en">Kashi Yatra</p>
+        <p class="r-desc">In playful tradition the groom sets off for Kashi with umbrella and staff, until the bride’s brother persuades him to marry.</p>
+      </article>
+      <article class="ritual">
+        <div class="r-icon"><svg aria-hidden="true"><use href="#ri-edurukolu"/></svg></div>
+        <p class="r-te te">ఎదురుకోలు</p>
+        <p class="r-en">Edurukolu</p>
+        <p class="r-desc">The two families come face to face and welcome each other with music, flowers and joy.</p>
+      </article>
+      <article class="ritual">
+        <div class="r-icon"><svg aria-hidden="true"><use href="#ri-kanyadanam"/></svg></div>
+        <p class="r-te te">కన్యాదానం</p>
+        <p class="r-en">Kanyadanam</p>
+        <p class="r-desc">The bride’s parents place her hand in the groom’s, praying for her lifelong happiness.</p>
+      </article>
+      <article class="ritual">
+        <div class="r-icon"><svg aria-hidden="true"><use href="#ri-jeelakarra"/></svg></div>
+        <p class="r-te te">జీలకర్ర బెల్లం</p>
+        <p class="r-en">Jeelakarra Bellam</p>
+        <p class="r-desc">At the muhurtham the tera is lowered and the couple place cumin and jaggery on each other’s head — a bond both strong and sweet.</p>
+      </article>
+      <article class="ritual">
+        <div class="r-icon"><svg aria-hidden="true"><use href="#ri-mangalyam"/></svg></div>
+        <p class="r-te te">మాంగల్య ధారణ</p>
+        <p class="r-en">Mangalya Dharana</p>
+        <p class="r-desc">The groom ties the mangalasutram as “Mangalyam tantunanena” is chanted.</p>
+      </article>
+      <article class="ritual">
+        <div class="r-icon"><svg aria-hidden="true"><use href="#ri-talambralu"/></svg></div>
+        <p class="r-te te">తలంబ్రాలు</p>
+        <p class="r-en">Talambralu</p>
+        <p class="r-desc">Bride and groom shower each other with turmeric rice and pearls, wishing each other abundance.</p>
+      </article>
+      <article class="ritual">
+        <div class="r-icon"><svg aria-hidden="true"><use href="#ri-saptapadi"/></svg></div>
+        <p class="r-te te">సప్తపది</p>
+        <p class="r-en">Saptapadi</p>
+        <p class="r-desc">Seven steps around the sacred fire, each one a vow for the life they share.</p>
+      </article>
+      <article class="ritual">
+        <div class="r-icon"><svg aria-hidden="true"><use href="#ri-arundhati"/></svg></div>
+        <p class="r-te te">అరుంధతి నక్షత్రం</p>
+        <p class="r-en">Arundhati Nakshatram</p>
+        <p class="r-desc">The couple is shown the Arundhati star, the timeless symbol of a devoted, unwavering bond.</p>
+      </article>
     </div>
   </section>
 
   <!-- INVITATION -->
-  <section class="sec invite">
+  <section class="sec invite r3d">
     <svg class="torana small" id="toranaInvite" viewBox="0 0 440 86" preserveAspectRatio="xMidYMin meet" aria-hidden="true"></svg>
-    <p class="yay" data-lift>And we’re getting married. Yay!</p>
+    <p class="yay te" data-lift>కళ్యాణ వైభోగమే</p>
     <div class="arch">
       <svg class="sway sw-a deco arch-l" aria-hidden="true"><use href="#sprig"/></svg>
       <svg class="sway sw-b deco arch-r" aria-hidden="true"><use href="#bluebonnet"/></svg>
       <div class="arch-inner">
         <svg class="kalasam" aria-hidden="true"><use href="#kalasam"/></svg>
         <p class="ganesha te" data-lift>|| శ్రీ గణేశాయ నమః ||</p>
+        <p class="te inv-bless" data-lift>శ్రీరస్తు • శుభమస్తు • అవిఘ్నమస్తు</p>
         <p class="caps" data-lift>You are invited to the<br>wedding ceremony of</p>
         <p class="name" data-lift>Prithvi</p>
         <p class="name-te te" data-lift>పృథ్వి</p>
@@ -621,22 +729,23 @@
         <p class="caps-13" data-lift>D/O</p>
         <p class="parents" data-lift>Sri Lakshmi Narayana &amp; Smt. Sreedevi</p>
         <p class="dear" data-lift>Dear Friends and Family</p>
+        <p class="te invite-te" data-lift>మా ఇంట జరుగు వివాహ మహోత్సవమునకు తాము సకుటుంబ సపరివార సమేతంగా విచ్చేసి, వధూవరులను ఆశీర్వదించవలసినదిగా ప్రార్థన.</p>
         <p class="body-17 invite-note" data-lift>With joyful hearts and the blessings of our families, we invite you to celebrate the beginning of our forever.</p>
       </div>
     </div>
   </section>
 
   <!-- QUOTE -->
-  <section class="sec quote">
+  <section class="sec quote r3d">
     <svg class="muggu" aria-hidden="true"><use href="#muggu"/></svg>
     <p class="mantra te" data-lift>మాంగల్యం తంతునానేన మమ జీవన హేతునా</p>
-    <p class="q-script" data-lift>Better together</p>
-    <p class="body-21" data-lift>“We’d love for you to join us, celebrate with us, and bless our new beginning.”</p>
-    <p class="body-19" data-lift>(Prithvi &amp; Jyosthna)</p>
+    <p class="q-script" data-lift>Mangalyam Tantunanena</p>
+    <p class="body-21" data-lift>“With this sacred thread, the very cause of my life…”</p>
+    <p class="body-19" data-lift>chanted as the mangalasutram is tied</p>
   </section>
 
   <!-- TIMELINE -->
-  <section class="sec timeline-sec" id="wedding">
+  <section class="sec timeline-sec r3d" id="wedding">
     <h2 class="t-script" data-lift>Wedding Timeline</h2>
     <svg class="muggu" aria-hidden="true"><use href="#muggu"/></svg>
     <div class="timeline" id="timeline">
@@ -664,7 +773,7 @@
   </section>
 
   <!-- COUNTDOWN -->
-  <section class="sec countdown-sec">
+  <section class="sec countdown-sec r3d">
     <h2 class="t-script gold" data-lift>The Celebration Begins</h2>
     <p class="caps-13 spaced" data-lift>Counting down to forever</p>
     <div class="countdown" id="countdown" data-fadeup>
@@ -677,7 +786,7 @@
   </section>
 
   <!-- CELEBRATION -->
-  <section class="sec celebrate" id="celebration">
+  <section class="sec celebrate r3d" id="celebration">
     <div class="card">
       <svg class="sway sw-b deco card-deco" aria-hidden="true"><use href="#bluebonnet"/></svg>
       <p class="t-script small" data-lift>The knot is tied.<br>The hearts are full.</p>
@@ -691,7 +800,7 @@
   </section>
 
   <!-- LOCATION -->
-  <section class="sec location">
+  <section class="sec location r3d">
     <h2 class="t-script" data-lift>Location</h2>
     <svg class="muggu" aria-hidden="true"><use href="#muggu"/></svg>
     <p class="city" data-lift>Melissa, Texas</p>
@@ -702,7 +811,7 @@
   </section>
 
   <!-- PHOTOS -->
-  <section class="sec photos" id="photos">
+  <section class="sec photos r3d" id="photos">
     <div class="card">
       <svg class="sway sw-a deco card-deco l" aria-hidden="true"><use href="#sprig"/></svg>
       <p class="caps-13 spaced" data-lift>Through your eyes</p>
@@ -718,10 +827,10 @@
   </section>
 
   <!-- RSVP -->
-  <section class="sec rsvp" id="rsvp">
-    <p class="caps-13 spaced" data-lift>You’re part of the story</p>
-    <h2 class="t-script rust" data-lift>Save Your Spot<br>in Our Forecast!</h2>
-    <p class="body-21" data-lift>The forecast looks better with you in it. Join us for two days of love, laughter, and unforgettable memories.</p>
+  <section class="sec rsvp r3d" id="rsvp">
+    <p class="caps-13 spaced" data-lift>Your blessings mean the world</p>
+    <h2 class="t-script rust" data-lift>Bless Us With<br>Your Presence</h2>
+    <p class="body-21" data-lift>Kindly confirm your attendance so we can welcome you and your family to two days of celebration.</p>
     <a class="btn rsvp-btn" id="rsvpBtn" target="_blank" rel="noopener" data-lift>RSVP</a>
   </section>
 
@@ -729,8 +838,8 @@
   <footer class="sec footer">
     <svg class="sway sw-a deco foot-l" aria-hidden="true"><use href="#sprig"/></svg>
     <svg class="sway sw-b deco foot-r" aria-hidden="true"><use href="#bluebonnet"/></svg>
-    <p class="body-21" data-lift>From Washington rain to Texas sunshine…</p>
-    <p class="body-17" data-lift>Here’s to a lifetime of sunny days, a little rain, and everything beautiful in between.</p>
+    <p class="te foot-te" data-lift>శుభం భూయాత్</p>
+    <p class="body-17" data-lift>With the blessings of Lord Srinivasa and Goddess Padmavati, we await your presence.</p>
     <p class="hope" data-fade-late>Hope to see you there</p>
     <p class="mono" data-fade-late>P &amp; J</p>
     <p class="hashtag" data-fade-late>#PrithviकीJyo</p>

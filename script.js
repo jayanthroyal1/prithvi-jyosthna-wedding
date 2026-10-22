@@ -7,34 +7,7 @@
   document.documentElement.classList.add("js");
 
   /* ---------- drawings built in code ---------- */
-  (function bluebonnet() {
-    const g = $("#bbFlorets");
-    const rows = [[92, 9, 6], [84, 8.5, 5.6], [76, 8, 5.2], [68, 7.5, 4.8], [60, 7, 4.4], [52, 6, 4], [44, 5, 3.6], [36, 4, 3.2], [29, 2.5, 2.8]];
-    rows.forEach(([y, dx, r], i) => {
-      const tip = i >= rows.length - 2;
-      [[-dx, -25], [dx, 25], [0, 0]].forEach(([ox, rot], k) => {
-        const e = document.createElementNS(NS, "ellipse");
-        e.setAttribute("cx", 30 + ox); e.setAttribute("cy", y);
-        e.setAttribute("rx", r); e.setAttribute("ry", r * .72);
-        e.setAttribute("transform", `rotate(${rot} ${30 + ox} ${y})`);
-        e.setAttribute("fill", tip ? "#EEF2F8" : k === 2 ? "#3D5A99" : (i % 2 ? "#5574B6" : "#46659F"));
-        g.appendChild(e);
-      });
-    });
-    const t = document.createElementNS(NS, "ellipse");
-    t.setAttribute("cx", 30); t.setAttribute("cy", 22); t.setAttribute("rx", 3); t.setAttribute("ry", 4.5); t.setAttribute("fill", "#F7F4EC");
-    g.appendChild(t);
-  })();
 
-  (function sprig() {
-    let d = "M40 168C38 120 44 70 40 6";
-    for (let y = 160; y > 12; y -= 7) {
-      const x = 40 + Math.sin(y / 30) * 2;
-      const len = 5 + 13 * (y / 170);
-      d += `M${x.toFixed(1)} ${y}l${-len.toFixed(1)} ${-(len * .55).toFixed(1)}M${x.toFixed(1)} ${y}l${len.toFixed(1)} ${-(len * .55).toFixed(1)}`;
-    }
-    $("#sprigPath").setAttribute("d", d);
-  })();
 
   (function sealShape() {
     let d = "";
@@ -73,8 +46,8 @@
         g.setAttribute("class", "leaf");
         const s = .9 + (i % 4 === 0 ? .2 : 0);
         g.innerHTML = `<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)}) scale(${s})">` +
-          `<path d="M0 0C-8 12 -8 34 0 52C8 34 8 12 0 0Z" fill="${i % 4 === 0 ? "#3E6B3A" : "#5C8A45"}"/>` +
-          `<path d="M0 2V48" stroke="#A9C77E" stroke-width=".8"/></g>`;
+          `<path d="M0 0C-7 10 -7 28 0 42C7 28 7 10 0 0Z" fill="${i % 4 === 0 ? "#3E6B3A" : "#5C8A45"}"/>` +
+          `<path d="M0 2V38" stroke="#A9C77E" stroke-width=".8"/></g>`;
       } else {
         g.setAttribute("class", "flower");
         g.innerHTML = `<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)})">` +
@@ -634,9 +607,10 @@
     vh = innerHeight;
     docMax = Math.max(1, document.documentElement.scrollHeight - vh);
     heroH = hero.offsetHeight || 1;
-    const r = timeline.getBoundingClientRect();
-    tlTop = r.top + scrollY;
-    tlTravel = Math.max(1, r.height - 70);
+    let top = 0;
+    for (let el = timeline; el; el = el.offsetParent) top += el.offsetTop;
+    tlTop = top;
+    tlTravel = Math.max(1, timeline.offsetHeight - 70);
   }
   new ResizeObserver(() => { measure(); onScroll(); }).observe(document.body);
   let ticking = false, lastHero = -1;
