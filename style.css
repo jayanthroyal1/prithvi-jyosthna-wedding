@@ -1018,3 +1018,8 @@ a { color: inherit; }
 /* footer credit and a faint watermark */
 .by-brother { font-family: var(--script); font-size: 30px; line-height: 1.2; color: var(--sun-deep); margin-top: 4px; }
 .watermark { font-family: var(--serif); font-size: 11px; letter-spacing: .12em; color: var(--rain-ink); opacity: .28; margin-top: 18px; }
+
+/* wax-seal monogram: engraved Cinzel Decorative, sized from the seal so it always sits inside the gold ring */
+.seal { container-type: inline-size; }
+.seal-text { font-family: "Cinzel Decorative", "Cinzel", Georgia, serif; font-weight: 700; font-size: 21cqw; letter-spacing: .02em; padding-top: 0; }
+.seal-text i { font-size: .7em; margin: 0 .06em; }
