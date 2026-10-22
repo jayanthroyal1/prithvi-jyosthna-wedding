@@ -298,6 +298,14 @@
       const r = a % 45 ? 53 : 74;
       mk("circle", { cx: (r * Math.cos(a * Math.PI / 180)).toFixed(1), cy: (r * Math.sin(a * Math.PI / 180)).toFixed(1), r: a % 45 ? 2.4 : 3.4 }, md);
     }
+    // flame points around the prabhavali arch behind the deities
+    const pf = $("#prabhaFlames");
+    if (pf) {
+      const pts = [];
+      for (let y = 600; y > 474; y -= 16) pts.push([126, y, -90], [314, y, 90]);
+      for (let a = 180; a <= 360; a += 15) pts.push([220 + 94 * Math.cos(a * Math.PI / 180), 474 + 72 * Math.sin(a * Math.PI / 180), a]);
+      pts.forEach(([x, y, a]) => mk("path", { d: "M0 0L3 -2L0 -9L-3 -2Z", transform: `translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${(a + 90).toFixed(0)})` }, pf));
+    }
     // malle poolu (jasmine) strands hanging inside the arch
     const jas = $("#jasmine");
     [[112, 70], [126, 48], [140, 30], [300, 30], [314, 48], [328, 70]].forEach(([x, len]) => {

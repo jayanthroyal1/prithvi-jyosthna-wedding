@@ -821,3 +821,15 @@ a { color: inherit; }
 .h-sk { font-size: 6cqw; line-height: 1.15; }
 .h-sk-en { font-size: 2.3cqw; letter-spacing: .3em; margin-top: .5cqw; }
 .inv-bless { font-size: 14px; color: var(--sun-deep); letter-spacing: .02em; margin: -8px 0 12px; }
+
+/* hero top: Srinivasa Kalyanam title with the couple's names (the deities are in the sanctum) */
+.l-text .hero-text { top: 15.2%; }
+.h-sk { font-size: 5.4cqw; }
+.l-text .h-names { font-size: 9.6cqw; line-height: 1.1; margin-top: .4cqw; }
+.h-names-te { font-size: 3.6cqw; color: #8E0B16; margin-top: .2cqw; text-shadow: 0 0 10px rgba(255, 248, 230, .95); }
+.page.show .hero-text > *:nth-child(2) { transition-delay: .25s; }
+.page.show .hero-text > *:nth-child(3) { transition-delay: .5s; }
+
+.l-text .h-names span, .l-text .h-names i { background: linear-gradient(100deg, #6E1216 0%, #A3242B 28%, #C8963E 50%, #A3242B 72%, #6E1216 100%); background-size: 220% auto; -webkit-background-clip: text; background-clip: text; color: transparent; }
+.l-text .h-names { filter: drop-shadow(0 0 6px rgba(255, 248, 230, 1)) drop-shadow(0 1px 1px rgba(90, 30, 10, .3)); font-size: 10.4cqw; }
+.l-text .hero-text { top: 15.6%; }
