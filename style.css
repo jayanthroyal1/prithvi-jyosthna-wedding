@@ -178,7 +178,7 @@ a { color: inherit; }
 .intro.s1 .seams path { stroke-dashoffset: 0; opacity: 1; transition-delay: .35s; }
 .intro.s2 .seal { transform: translate(-50%, -50%) scale(1.6); opacity: 0; transition: transform 1s cubic-bezier(.3, .6, .3, 1), opacity .7s ease; }
 .intro.s2 .seams path { opacity: 0; transition: opacity .6s; }
-.intro.s3 .flash { opacity: 1; }
+.intro.s5 .flash { opacity: .85; }
 .intro.out { opacity: 0; pointer-events: none; }
 
 /* ================= PAGE ================= */
@@ -974,3 +974,47 @@ a { color: inherit; }
 .tap-label { font-family: "Cinzel Decorative", "Cinzel", Georgia, serif; font-weight: 700; font-size: 12px; color: #7A1F1F; }
 .ganesha-mantra small { font-family: "Cinzel Decorative", "Cinzel", Georgia, serif; font-weight: 700; font-size: 10px; letter-spacing: .24em; }
 .intro.s1 .tap-te { opacity: 0; transition: opacity .4s ease; }
+
+/* gold "lit" envelope motifs that glow on tap */
+:root { --glow-spray: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 120'%3E%3Cdefs%3E%3Cg id='m' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cg id='h'%3E%3Cpath d='M86 66C70 74 52 74 30 64C20 59 13 52 9 44'/%3E%3Cpath d='M64 74c-2-9 3-16 11-19c1 9-3 15-11 19Z'/%3E%3Cpath d='M46 72c-7-5-9-13-6-21c7 4 9 12 6 21Z'/%3E%3Cpath d='M58 74c-4 8-11 12-19 11c4-7 11-11 19-11Z'/%3E%3Cpath d='M30 64c-6 6-14 8-21 5c5-6 13-8 21-5Z'/%3E%3Cpath d='M94 75C90 88 82 98 70 106'/%3E%3Cpath d='M84 93c-8-1-13-6-14-13c7 1 12 6 14 13Z'/%3E%3Cpath d='M78 101c-1 7-5 11-11 13c0-6 4-11 11-13Z'/%3E%3Cellipse cx='24' cy='43.6' rx='2.6' ry='4.6' transform='rotate(0 24 48)'/%3E%3Cellipse cx='24' cy='43.6' rx='2.6' ry='4.6' transform='rotate(72 24 48)'/%3E%3Cellipse cx='24' cy='43.6' rx='2.6' ry='4.6' transform='rotate(144 24 48)'/%3E%3Cellipse cx='24' cy='43.6' rx='2.6' ry='4.6' transform='rotate(216 24 48)'/%3E%3Cellipse cx='24' cy='43.6' rx='2.6' ry='4.6' transform='rotate(288 24 48)'/%3E%3Ccircle cx='24' cy='48' r='1.4300000000000002'/%3E%3Cellipse cx='70' cy='102.4' rx='2.2' ry='3.8' transform='rotate(0 70 106)'/%3E%3Cellipse cx='70' cy='102.4' rx='2.2' ry='3.8' transform='rotate(72 70 106)'/%3E%3Cellipse cx='70' cy='102.4' rx='2.2' ry='3.8' transform='rotate(144 70 106)'/%3E%3Cellipse cx='70' cy='102.4' rx='2.2' ry='3.8' transform='rotate(216 70 106)'/%3E%3Cellipse cx='70' cy='102.4' rx='2.2' ry='3.8' transform='rotate(288 70 106)'/%3E%3Ccircle cx='70' cy='106' r='1.2100000000000002'/%3E%3Cellipse cx='9' cy='42' rx='2.6' ry='4' transform='rotate(-35 9 42)'/%3E%3C/g%3E%3Cuse href='%23h' transform='matrix(-1 0 0 1 200 0)'/%3E%3Cellipse cx='100' cy='45' rx='8' ry='14' transform='rotate(0 100 58)'/%3E%3Cellipse cx='100' cy='45' rx='8' ry='14' transform='rotate(72 100 58)'/%3E%3Cellipse cx='100' cy='45' rx='8' ry='14' transform='rotate(144 100 58)'/%3E%3Cellipse cx='100' cy='45' rx='8' ry='14' transform='rotate(216 100 58)'/%3E%3Cellipse cx='100' cy='45' rx='8' ry='14' transform='rotate(288 100 58)'/%3E%3Ccircle cx='100' cy='58' r='4.4'/%3E%3Cellipse cx='100' cy='53' rx='3.5' ry='6' transform='rotate(0 100 58)'/%3E%3Cellipse cx='100' cy='53' rx='3.5' ry='6' transform='rotate(72 100 58)'/%3E%3Cellipse cx='100' cy='53' rx='3.5' ry='6' transform='rotate(144 100 58)'/%3E%3Cellipse cx='100' cy='53' rx='3.5' ry='6' transform='rotate(216 100 58)'/%3E%3Cellipse cx='100' cy='53' rx='3.5' ry='6' transform='rotate(288 100 58)'/%3E%3Ccircle cx='100' cy='58' r='1.9250000000000003'/%3E%3Cpath d='M100 40V24M100 30c-6-3-8-8-6-14c5 3 7 8 6 14ZM100 30c6-3 8-8 6-14c-5 3-7 8-6 14Z'/%3E%3C/g%3E%3C/defs%3E%3Cuse href='%23m' stroke='%23FFC960' stroke-opacity='.28' stroke-width='5'/%3E%3Cuse href='%23m' stroke='%23FFD98A' stroke-opacity='.75' stroke-width='2.4'/%3E%3Cuse href='%23m' stroke='%23FFF6D6' stroke-width='1.1'/%3E%3C/svg%3E"); --glow-vine: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 240'%3E%3Cdefs%3E%3Cg id='v' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M30 0C22 30 38 60 30 90S22 150 30 180S38 220 30 240'/%3E%3Cpath d='M30 40c10 -3 15 -10 15 -18c-8 1 -14 8 -15 18Z'/%3E%3Cpath d='M30 62c-10 -3 -15 -10 -15 -18c8 1 14 8 15 18Z'/%3E%3Cpath d='M30 118c10 -3 15 -10 15 -18c-8 1 -14 8 -15 18Z'/%3E%3Cpath d='M30 140c-10 -3 -15 -10 -15 -18c8 1 14 8 15 18Z'/%3E%3Cpath d='M30 200c10 -3 15 -10 15 -18c-8 1 -14 8 -15 18Z'/%3E%3Cpath d='M30 222c-10 -3 -15 -10 -15 -18c8 1 14 8 15 18Z'/%3E%3Cellipse cx='44' cy='95.2' rx='2.8' ry='5' transform='rotate(0 44 100)'/%3E%3Cellipse cx='44' cy='95.2' rx='2.8' ry='5' transform='rotate(72 44 100)'/%3E%3Cellipse cx='44' cy='95.2' rx='2.8' ry='5' transform='rotate(144 44 100)'/%3E%3Cellipse cx='44' cy='95.2' rx='2.8' ry='5' transform='rotate(216 44 100)'/%3E%3Cellipse cx='44' cy='95.2' rx='2.8' ry='5' transform='rotate(288 44 100)'/%3E%3Ccircle cx='44' cy='100' r='1.54'/%3E%3Cellipse cx='16' cy='165.2' rx='2.8' ry='5' transform='rotate(0 16 170)'/%3E%3Cellipse cx='16' cy='165.2' rx='2.8' ry='5' transform='rotate(72 16 170)'/%3E%3Cellipse cx='16' cy='165.2' rx='2.8' ry='5' transform='rotate(144 16 170)'/%3E%3Cellipse cx='16' cy='165.2' rx='2.8' ry='5' transform='rotate(216 16 170)'/%3E%3Cellipse cx='16' cy='165.2' rx='2.8' ry='5' transform='rotate(288 16 170)'/%3E%3Ccircle cx='16' cy='170' r='1.54'/%3E%3Cellipse cx='18' cy='12' rx='2.4' ry='4' transform='rotate(0 18 16)'/%3E%3Cellipse cx='18' cy='12' rx='2.4' ry='4' transform='rotate(72 18 16)'/%3E%3Cellipse cx='18' cy='12' rx='2.4' ry='4' transform='rotate(144 18 16)'/%3E%3Cellipse cx='18' cy='12' rx='2.4' ry='4' transform='rotate(216 18 16)'/%3E%3Cellipse cx='18' cy='12' rx='2.4' ry='4' transform='rotate(288 18 16)'/%3E%3Ccircle cx='18' cy='16' r='1.32'/%3E%3C/g%3E%3C/defs%3E%3Cuse href='%23v' stroke='%23FFC960' stroke-opacity='.28' stroke-width='5'/%3E%3Cuse href='%23v' stroke='%23FFD98A' stroke-opacity='.75' stroke-width='2.4'/%3E%3Cuse href='%23v' stroke='%23FFF6D6' stroke-width='1.1'/%3E%3C/svg%3E"); }
+
+/* ================= OPENING CEREMONY v3 ================= */
+/* 1. on tap the embossed flowers light up in gold */
+.lit { position: absolute; inset: 0; opacity: 0; transition: opacity 1.2s ease .2s; pointer-events: none; }
+.lit-spray-t { background: var(--glow-spray) 50% 7% / 62% auto no-repeat; }
+.lit-spray-b { background: var(--glow-spray) 50% 90% / 62% auto no-repeat; }
+.lit-vine-l { background: var(--glow-vine) 7% 50% / 16% auto no-repeat; }
+.lit-vine-r { background: var(--glow-vine) 93% 50% / 16% auto no-repeat; }
+.intro.s1 .lit { opacity: 1; animation: litShimmer 2.4s ease-in-out 1.4s infinite alternate; }
+@keyframes litShimmer { from { opacity: 1; } to { opacity: .55; } }
+
+/* 3. after Ganesha: the flap opens, the letter rises */
+.intro.s3 .env-top { transform: rotateX(180deg); filter: brightness(1.06); }
+.intro.s3 .env-inner-light { opacity: 1; }
+.intro.s4 .env-top { z-index: 0; }
+.intro.s4 .env-letter { transform: translateY(-24%); }
+.intro.s4 .env-letter::after { opacity: 1; }
+.intro.s3 .lit { animation: none; opacity: 1; }
+
+/* 4. the camera dives into the letter, and the hero emerges from the envelope */
+.envelope { transform-origin: 50% 22%; }
+.intro.s5 .envelope { transform: scale(2.8); transition: transform 1.3s cubic-bezier(.55, 0, .2, 1); }
+.intro.out { transition: opacity 1.1s ease .15s; }
+.page.from-env .hero-scene { animation: heroEmerge 1.6s cubic-bezier(.2, .8, .2, 1) both; }
+@keyframes heroEmerge {
+  0%   { transform: perspective(1000px) translate3d(0, 6%, -120px) rotateX(10deg) scale(.86); filter: brightness(1.25); }
+  100% { transform: none; filter: none; }
+}
+
+/* hero top: blessing first, then the Srinivasa Kalyanam painting */
+.l-text .hero-text { top: 13.7%; }
+.h-bless { font-size: 4.6cqw; line-height: 1.3; color: #9E1020; letter-spacing: .02em; margin-bottom: 1.6cqw; text-shadow: 0 0 10px rgba(255, 248, 230, 1), 0 0 2px rgba(255, 255, 255, .9); }
+.sk-image { width: 67cqw; }
+.page.show .hero-text > .h-bless { transition: opacity 1.2s ease .2s, transform 1.2s ease .2s; }
+.page.show .hero-text > .sk-image { animation-delay: 1.05s; }
+.page.show .sk-image::after { animation-delay: 3.1s; }
+.page.show .sk-image img { animation-delay: 3.6s; }
+
+/* footer credit and a faint watermark */
+.by-brother { font-family: var(--script); font-size: 30px; line-height: 1.2; color: var(--sun-deep); margin-top: 4px; }
+.watermark { font-family: var(--serif); font-size: 11px; letter-spacing: .12em; color: var(--rain-ink); opacity: .28; margin-top: 18px; }

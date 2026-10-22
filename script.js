@@ -198,8 +198,10 @@
     sparkles();
     petalBurst();
     setTimeout(() => intro.classList.add("s2"), 1500);   // seal becomes the medallion; Ganesha is drawn
-    setTimeout(() => intro.classList.add("s3"), 4900);   // blessing light rises
-    finish(5800);
+    setTimeout(() => intro.classList.add("s3"), 4900);   // Ganesha and the lotus fade; the flap opens
+    setTimeout(() => intro.classList.add("s4"), 5900);   // the letter rises out of the envelope
+    setTimeout(() => intro.classList.add("s5"), 6800);   // dive into the letter
+    finish(7300);
   }
   function finish(at) {
     setTimeout(() => {
@@ -207,7 +209,7 @@
       window.scrollTo(0, 0);
       pageLive = true;
       heroSection.classList.remove("paused");
-      page.classList.add("show");
+      page.classList.add("show", "from-env");
       intro.classList.add("out");
       initScratch();
       if (hasVideo) heroVideo.play().catch(() => {});
