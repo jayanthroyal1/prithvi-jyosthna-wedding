@@ -906,3 +906,64 @@ a { color: inherit; }
   box-shadow: 0 0 0 .6cqw #E2B04F, 0 0 0 1.4cqw #8E0B16, 0 0 0 1.8cqw #F3D58E, 0 2.4cqw 5cqw rgba(90, 40, 10, .35);
 }
 .sk-image img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* ================= HERO PAINTING: soft blend + cinematic 2.5D entrance ================= */
+.sk-image { position: relative; background: #6E0610; transform-origin: 50% 100%; }
+.sk-image img { opacity: .9; }
+.sk-image::before { /* gentle vignette so the painting melts into its frame */
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: radial-gradient(ellipse at 50% 45%, transparent 55%, rgba(60, 6, 10, .55) 100%);
+}
+.sk-image::after { /* golden light: blooms on arrival, then sweeps once across */
+  content: ""; position: absolute; inset: -20% -60%; z-index: 2; pointer-events: none;
+  background: linear-gradient(105deg, transparent 38%, rgba(255, 236, 190, .55) 50%, transparent 62%);
+  transform: translateX(-60%); opacity: 0;
+}
+.page.show .hero-text > .sk-image { animation: skCinematic 2.6s cubic-bezier(.16, .8, .2, 1) .15s both; transition: none; }
+.page.show .sk-image::after { animation: skSweep 1.8s ease-in-out 2.2s both; }
+.page.show .sk-image img { animation: skDrift 22s ease-in-out 2.6s infinite alternate; }
+@keyframes skCinematic {
+  0%   { opacity: 0; transform: perspective(700px) translate3d(0, 5cqw, -60px) rotateX(20deg) scale(1.14); filter: brightness(1.7) saturate(.6); }
+  45%  { opacity: 1; filter: brightness(1.15) saturate(.9); }
+  100% { opacity: 1; transform: perspective(700px) translate3d(0, 0, 0) rotateX(0deg) scale(1); filter: none; }
+}
+@keyframes skSweep { 0% { opacity: 0; transform: translateX(-60%); } 15% { opacity: 1; } 85% { opacity: 1; } 100% { opacity: 0; transform: translateX(60%); } }
+@keyframes skDrift { from { transform: scale(1) translate(0, 0); } to { transform: scale(1.08) translate(-1.5%, -1%); } }
+
+/* ================= SACRED RITUALS: a lotus blooms into each card ================= */
+.r-back { display: none; }
+.r-bloom { display: none; }
+@supports (animation-timeline: view()) {
+  .ritual { position: relative; }
+  .r-card { animation: cardFromBloom cubic-bezier(.2, .7, .2, 1) both; animation-timeline: --ritual; animation-range: entry 5% cover 46%; transform-origin: 50% 50%; }
+  .ritual:nth-child(even) .r-card { animation-name: cardFromBloomR; animation-range: entry 18% cover 54%; }
+  .ritual:last-child .r-card { animation-name: cardFromBloom; }
+  @keyframes cardFromBloom  { 0%, 34% { opacity: 0; transform: scale(.22) rotate(-14deg); } 70% { opacity: 1; } 100% { opacity: 1; transform: none; } }
+  @keyframes cardFromBloomR { 0%, 34% { opacity: 0; transform: scale(.22) rotate(14deg); } 70% { opacity: 1; } 100% { opacity: 1; transform: none; } }
+
+  .r-bloom { display: block; position: absolute; left: 50%; top: 50%; width: 0; height: 0; z-index: 3; pointer-events: none; }
+  .petal-b {
+    position: absolute; left: -14px; top: -46px; width: 28px; height: 46px; transform-origin: 50% 100%;
+    border-radius: 50% 50% 45% 45% / 62% 62% 38% 38%;
+    background: linear-gradient(to top, #B8283E 0%, #E26B7E 55%, #FBD3D8 100%);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .35);
+    animation: petalBloom cubic-bezier(.3, .6, .25, 1) both; animation-timeline: --ritual; animation-range: entry 0% cover 50%;
+  }
+  .petal-b.alt { background: linear-gradient(to top, #C8242B 0%, #F0B44C 60%, #FFF0C2 100%); }
+  .ritual:nth-child(even) .petal-b { animation-range: entry 12% cover 58%; }
+  @keyframes petalBloom {
+    0%   { opacity: 0; transform: rotate(var(--a)) translateY(8px) scale(.25, .4); }
+    12%  { opacity: 1; transform: rotate(var(--a)) translateY(4px) scale(.45, .7); }
+    38%  { opacity: 1; transform: rotate(var(--a)) translateY(-6px) scale(1.1, 1.15); }
+    62%  { opacity: .85; transform: rotate(calc(var(--a) + 30deg)) translateY(-70px) scale(.9); }
+    100% { opacity: 0; transform: rotate(calc(var(--a) + 60deg)) translateY(-130px) scale(.4); }
+  }
+  .bloom-heart {
+    position: absolute; left: -9px; top: -9px; width: 18px; height: 18px; border-radius: 50%;
+    background: radial-gradient(circle, #FFF6C8 0%, #F3C969 55%, #D9A23E 100%); box-shadow: 0 0 14px 4px rgba(255, 214, 130, .7);
+    animation: heartGlow ease-out both; animation-timeline: --ritual; animation-range: entry 0% cover 50%;
+  }
+  .ritual:nth-child(even) .bloom-heart { animation-range: entry 12% cover 58%; }
+  @keyframes heartGlow { 0% { opacity: 0; transform: scale(.3); } 25% { opacity: 1; transform: scale(1); } 45% { opacity: 1; transform: scale(2.2); } 70%, 100% { opacity: 0; transform: scale(4); } }
+}
+@media (prefers-reduced-motion: reduce) { .r-bloom { display: none !important; } }

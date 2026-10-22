@@ -111,6 +111,23 @@
     }
   }
 
+  /* ---------- sacred rituals: a lotus that blooms into each card ---------- */
+  $$(".ritual").forEach((card, k) => {
+    const bloom = document.createElement("div");
+    bloom.className = "r-bloom";
+    bloom.setAttribute("aria-hidden", "true");
+    for (let i = 0; i < 8; i++) {
+      const p = document.createElement("span");
+      p.className = "petal-b" + (i % 2 ? " alt" : "");
+      p.style.setProperty("--a", (i * 45 + (k % 2 ? 22.5 : 0)) + "deg");
+      bloom.appendChild(p);
+    }
+    const heart = document.createElement("span");
+    heart.className = "bloom-heart";
+    bloom.appendChild(heart);
+    card.appendChild(bloom);
+  });
+
   /* ---------- links ---------- */
   const q = encodeURIComponent(C.venueQuery);
   $("#mapBtn").href = `https://www.google.com/maps/search/?api=1&query=${q}`;
