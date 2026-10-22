@@ -306,7 +306,7 @@
       <div class="stage" id="stage">
 
         <!-- FAR: dawn sky, halo, string lights, ground, muggu -->
-        <svg class="layer l-far" viewBox="0 0 440 780" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <svg class="layer l-far" viewBox="0 -100 440 880" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
           <defs>
             <linearGradient id="skyY" x1="0" x2="0" y1="0" y2="1">
               <stop offset="0" stop-color="#FBF3E4"/>
@@ -326,7 +326,7 @@
             </linearGradient>
             <filter id="softBlur" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="7"/></filter>
           </defs>
-          <rect x="-40" y="-80" width="520" height="940" fill="url(#skyY)"/>
+          <rect x="-40" y="-190" width="520" height="1050" fill="url(#skyY)"/>
           <ellipse class="halo" cx="220" cy="480" rx="270" ry="310" fill="url(#halo)"/>
           <!-- distant temple gopuram silhouettes -->
           <g fill="#D9A867" opacity=".55">
@@ -346,7 +346,7 @@
         </svg>
 
         <!-- INNER: kumkum-red sanctum with names & date, revealed when the tera is lowered -->
-        <svg class="layer l-inner" viewBox="0 0 440 780" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <svg class="layer l-inner" viewBox="0 -100 440 880" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
           <defs>
             <clipPath id="opening"><path d="M94 690V430C94 400 140 384 220 382C300 384 346 400 346 430V690Z"/></clipPath>
             <radialGradient id="sanctum" cx="50%" cy="58%" r="70%">
@@ -388,81 +388,24 @@
               <path d="M209 430c0-13 5-20 11-20s11 7 11 20h3v3h-28v-3Z" fill="url(#bellG)"/>
               <circle cx="220" cy="436" r="2.6" fill="#8E5E18"/>
             </g>
-            <!-- SRINIVASA KALYANAM: Lord Srinivasa and Goddess Padmavati in the sanctum (revealed when the tera is lowered) -->
-            <g class="sanctum-text">
-              <defs>
-                <linearGradient id="dGold" x1="0" y1="0" x2=".5" y2="1"><stop offset="0" stop-color="#FFF2C0"/><stop offset=".4" stop-color="#F0C460"/><stop offset=".75" stop-color="#C38A33"/><stop offset="1" stop-color="#8E5E18"/></linearGradient>
-                <linearGradient id="dSilk" x1="0" x2="1"><stop offset="0" stop-color="#D99A20"/><stop offset=".45" stop-color="#FFD55C"/><stop offset="1" stop-color="#C98A18"/></linearGradient>
-                <linearGradient id="dSaree" x1="0" x2="1"><stop offset="0" stop-color="#7E0812"/><stop offset=".5" stop-color="#C8242B"/><stop offset="1" stop-color="#7E0812"/></linearGradient>
-                <radialGradient id="dGlow"><stop offset="0" stop-color="#FFE7A6" stop-opacity=".55"/><stop offset=".6" stop-color="#FFC66B" stop-opacity=".18"/><stop offset="1" stop-color="#FFC66B" stop-opacity="0"/></radialGradient>
-                <g id="garland">
-                  <path d="M28 88C34 128 44 156 50 168C56 156 66 128 72 88" fill="none" stroke="#F2B33D" stroke-width="5" stroke-linecap="round" stroke-dasharray=".1 5.4"/>
-                  <path d="M28 88C34 128 44 156 50 168C56 156 66 128 72 88" fill="none" stroke="#3E6B2C" stroke-width="1.4" stroke-opacity=".7"/>
-                  <circle cx="50" cy="170" r="3.2" fill="#C8242B"/>
-                </g>
-              </defs>
-              <ellipse cx="220" cy="520" rx="122" ry="140" fill="url(#dGlow)"/>
-              <!-- prabhavali (golden arch with flame points) -->
-              <path d="M126 614V474C126 424 170 402 220 402C270 402 314 424 314 474V614" fill="none" stroke="#E2B04F" stroke-width="3.2"/>
-              <path d="M134 614V476C134 430 174 410 220 410C266 410 306 430 306 476V614" fill="none" stroke="#FFE7A6" stroke-width="1" stroke-opacity=".7"/>
-              <g id="prabhaFlames" fill="#F3C969"></g>
-
-              <!-- Lord Srinivasa -->
-              <g transform="translate(132 430) scale(.88)" stroke="#7E5214" stroke-width=".8" stroke-linejoin="round">
-                <path d="M30 124C30 150 32 176 36 196H64C68 176 70 150 70 124Z" fill="url(#dSilk)"/>
-                <path d="M40 126V194M50 126V196M60 126V194" fill="none" stroke="#B0761A" stroke-width=".7"/>
-                <path d="M30 186H70" fill="none" stroke="#C8242B" stroke-width="2"/>
-                <path d="M26 84C34 80 42 80 50 80C58 80 66 80 74 84L76 122C70 128 30 128 24 122Z" fill="url(#dGold)"/>
-                <path d="M26 86C18 80 14 70 16 58L22 58C22 68 26 76 30 80Z" fill="url(#dGold)"/>
-                <path d="M74 86C82 80 86 70 84 58L78 58C78 68 74 76 70 80Z" fill="url(#dGold)"/>
-                <path d="M24 100C18 112 16 126 18 140L24 140C24 128 26 116 30 104Z" fill="url(#dGold)"/>
-                <path d="M15 140H27L25 152C23 156 19 156 17 152Z" fill="url(#dGold)"/>
-                <path d="M76 100C84 108 86 118 80 128L74 126C78 118 76 110 70 104Z" fill="url(#dGold)"/>
-                <!-- chakra (his right, viewer's left) and shankha (his left) -->
-                <g transform="translate(18 48)">
-                  <g fill="#F3B74A" stroke="none"><path d="M0 -13L2 -9H-2Z"/><path d="M0 13L2 9H-2Z"/><path d="M-13 0L-9 2V-2Z"/><path d="M13 0L9 2V-2Z"/><path d="M9 -9L6.4 -5L5 -6.4Z"/><path d="M-9 9L-6.4 5L-5 6.4Z"/><path d="M9 9L5 6.4L6.4 5Z"/><path d="M-9 -9L-5 -6.4L-6.4 -5Z"/></g>
-                  <circle r="8.5" fill="#FBE8B8"/><path d="M0 -8.5V8.5M-8.5 0H8.5M-6 -6L6 6M6 -6L-6 6" fill="none" stroke-width=".7"/><circle r="2.4" fill="#C8242B"/>
-                </g>
-                <path d="M82 38C88 40 90 46 89 51C88 55 86 58 84 62C83 64 81 64 80 62C78 58 77 54 78 50C78 44 80 39 82 38Z" fill="#FFF8EA"/>
-                <!-- face, kireetam, Thiru Namam -->
-                <path d="M36 54C36 70 42 80 50 80C58 80 64 70 64 54Z" fill="url(#dGold)"/>
-                <path d="M32 55L40 12Q50 0 60 12L68 55Z" fill="url(#dGold)"/>
-                <path d="M36 44H64M38 34H62M40 24H60" fill="none" stroke="#C8242B" stroke-width="1.6"/>
-                <circle cx="50" cy="4" r="2.6" fill="#F6D47E"/>
-                <g fill="#C8242B" stroke="none"><circle cx="50" cy="39" r="2"/><circle cx="50" cy="29" r="1.6"/><circle cx="43" cy="49" r="1.3"/><circle cx="57" cy="49" r="1.3"/></g>
-                <path d="M42.5 56V65C42.5 71.5 57.5 71.5 57.5 65V56" fill="none" stroke="#FFFFFF" stroke-width="3.8" stroke-linecap="round"/>
-                <path d="M50 56V70" fill="none" stroke="#D41F1F" stroke-width="2.4" stroke-linecap="round"/>
-                <circle cx="34" cy="66" r="3.6" fill="#F6D47E"/><circle cx="66" cy="66" r="3.6" fill="#F6D47E"/>
-                <path d="M32 90Q50 112 68 90M34 96Q50 120 66 96" fill="none" stroke="#C8242B" stroke-width="1.8"/>
-                <use href="#garland"/>
-                <path d="M24 196H76L72 204H28Z" fill="url(#dGold)"/>
+            <!-- names & date: soft halo + shadow copies instead of a blur filter -->
+            <g class="sanctum-text" text-anchor="middle">
+              <g fill="none" stroke="#FFC66B" stroke-opacity=".22" stroke-width="7" stroke-linejoin="round">
+                <text x="220" y="478" class="sv-name">Prithvi</text>
+                <text x="220" y="510" class="sv-amp">&amp;</text>
+                <text x="220" y="554" class="sv-name">Jyosthna</text>
               </g>
-
-              <!-- Goddess Padmavati -->
-              <g transform="translate(222 448) scale(.82)" stroke="#7E5214" stroke-width=".8" stroke-linejoin="round">
-                <path d="M30 110C28 140 30 170 32 196H68C70 170 72 140 70 110Z" fill="url(#dSaree)"/>
-                <path d="M30 186H70M31 176H69" fill="none" stroke="#F3C969" stroke-width="2"/>
-                <path d="M30 76C38 72 44 72 50 72C56 72 62 72 70 76L72 112C66 118 34 118 28 112Z" fill="url(#dGold)"/>
-                <path d="M30 80L70 120" fill="none" stroke="#C8242B" stroke-width="5"/>
-                <path d="M30 80L70 120" fill="none" stroke="#F3C969" stroke-width="1.6"/>
-                <path d="M30 80C22 90 20 100 24 108L30 104C28 98 30 90 34 86Z" fill="url(#dGold)"/>
-                <path d="M70 80C78 90 80 100 76 108L70 104C72 98 70 90 66 86Z" fill="url(#dGold)"/>
-                <!-- lotuses in both hands -->
-                <g transform="translate(22 62)"><path d="M0 14V-2" stroke="#4F7A34" stroke-width="1.6"/><path d="M0 0C-6 -4 -7 -12 -3 -18C-1 -12 0 -6 0 0ZM0 0C6 -4 7 -12 3 -18C1 -12 0 -6 0 0ZM0 0C-3 -8 -3 -16 0 -22C3 -16 3 -8 0 0Z" fill="#F08DA0" stroke="#B8283E" stroke-width=".6"/></g>
-                <g transform="translate(78 62)"><path d="M0 14V-2" stroke="#4F7A34" stroke-width="1.6"/><path d="M0 0C-6 -4 -7 -12 -3 -18C-1 -12 0 -6 0 0ZM0 0C6 -4 7 -12 3 -18C1 -12 0 -6 0 0ZM0 0C-3 -8 -3 -16 0 -22C3 -16 3 -8 0 0Z" fill="#F08DA0" stroke="#B8283E" stroke-width=".6"/></g>
-                <!-- face and crown -->
-                <path d="M38 46C38 62 43 72 50 72C57 72 62 62 62 46Z" fill="url(#dGold)"/>
-                <path d="M35 47L39 24Q50 12 61 24L65 47Z" fill="url(#dGold)"/>
-                <path d="M38 38H62M40 30H60" fill="none" stroke="#C8242B" stroke-width="1.4"/>
-                <circle cx="50" cy="15" r="2.4" fill="#F6D47E"/>
-                <circle cx="50" cy="33" r="2" fill="#C8242B" stroke="none"/>
-                <circle cx="50" cy="53" r="1.6" fill="#D41F1F" stroke="none"/>
-                <path d="M44 58Q46 56 48 58M52 58Q54 56 56 58" fill="none" stroke="#5E0610" stroke-width=".9"/>
-                <circle cx="37" cy="58" r="3" fill="#F6D47E"/><circle cx="63" cy="58" r="3" fill="#F6D47E"/>
-                <path d="M36 84Q50 100 64 84" fill="none" stroke="#C8242B" stroke-width="1.8"/>
-                <use href="#garland" transform="translate(0 -6)"/>
-                <path d="M24 196H76L72 204H28Z" fill="url(#dGold)"/>
+              <g fill="#2A0606" fill-opacity=".6" transform="translate(0 1.6)">
+                <text x="220" y="478" class="sv-name">Prithvi</text>
+                <text x="220" y="510" class="sv-amp">&amp;</text>
+                <text x="220" y="554" class="sv-name">Jyosthna</text>
+                <text x="220" y="596" class="sv-subha">శుభ వివాహం</text>
               </g>
+              <text x="220" y="478" class="sv-name" fill="url(#nameGold)">Prithvi</text>
+              <text x="220" y="510" class="sv-amp" fill="#F3C969">&amp;</text>
+              <text x="220" y="554" class="sv-name" fill="url(#nameGold)">Jyosthna</text>
+              <path d="M168 568H272" stroke="#F3C969" stroke-width=".8" opacity=".7"/>
+              <text x="220" y="596" class="sv-subha" fill="#FFD58C">శుభ వివాహం</text>
             </g>
             <!-- tera: the cloth screen held between bride and groom, lowered at the muhurtham -->
             <g class="tera">
@@ -484,7 +427,7 @@
 
 
         <!-- MANDAPAM: solid gold frame -->
-        <svg class="layer l-mandapam" id="sheenLayer" viewBox="0 0 440 780" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <svg class="layer l-mandapam" id="sheenLayer" viewBox="0 -100 440 880" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
           <defs>
             <linearGradient id="cyl" x1="0" x2="1">
               <stop offset="0" stop-color="#6E4610"/>
@@ -561,13 +504,14 @@
         <!-- TEXT above the roof -->
         <div class="layer l-text">
           <div class="hero-text">
-            <p class="h-sk te">శ్రీనివాస కళ్యాణం</p>
-            <p class="h-names"><span>Prithvi</span> <i>&amp;</i> <span>Jyosthna</span></p>
+            <figure class="sk-image">
+              <img src="assets/srinivasa-kalyanam.webp" alt="Srinivasa Kalyanam: the celestial wedding of Lord Srinivasa and Goddess Padmavati, blessed by the gods" width="870" height="487" fetchpriority="high" decoding="async">
+            </figure>
           </div>
         </div>
 
         <!-- FRONT: banana plants, deepams, homam -->
-        <svg class="layer l-front" viewBox="0 0 440 780" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <svg class="layer l-front" viewBox="0 -100 440 880" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
           <defs>
             <radialGradient id="flameG" cx="50%" cy="75%" r="65%">
               <stop offset="0" stop-color="#FFF8DC"/>
